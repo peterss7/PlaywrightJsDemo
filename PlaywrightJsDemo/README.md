@@ -1,1 +1,0 @@
-﻿# Playwright with JS Demo

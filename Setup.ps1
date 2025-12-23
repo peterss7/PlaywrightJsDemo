@@ -1,8 +1,3 @@
-param(
-    [Parameter(Mandatory = $true)]
-    [string]$Name
-)
-
 $ErrorActionPreference = "Stop"
 
 function Run([string]$cmd, [string[]]$arguments) {
@@ -13,12 +8,6 @@ function Run([string]$cmd, [string[]]$arguments) {
 }
 
 try {
-    Write-Host "Setting up project $Name..." -ForegroundColor White
-
-    New-Item -ItemType Directory -Force -Path $Name | Out-Null
-    Set-Location $Name
-    Write-Host "Directory created..." -ForegroundColor White
-
     Run npm @("init", "-y")
     Write-Host "Initialized package.json..." -ForegroundColor White
 
@@ -125,30 +114,37 @@ try {
     )
     Write-Host "Created playwright.config.js..." -ForegroundColor White
 
-    Set-Content -Encoding utf8 -Path "README.md" -Value @(
-       "# 🐺 QA Wolf Take Home Assignment"
-    )
-    Write-Host "Created README.md"
-
     if (Get-Command git -ErrorAction SilentlyContinue) {
         Run git @("init")
         Write-Host "Initialized repo..." -ForegroundColor White
     }
 
+    # example variables
+    $repoUrl = "https://github.com/TechWithTy/QA_Tester_Example_Project.git"
+    $temp = Join-Path $env:TEMP ("seed-" + [guid]::NewGuid())
+
+    git clone --depth 1 $repoUrl $temp
+
+    Copy-Item (Join-Path $temp "README.md") -Destination ".\README.md" -Force
+
+    Remove-Item $temp -Recurse -Force
+
+    Write-Host "Created README.md"
+    
+    Run npm @("pkg", "set", "scripts.install=powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1") 
+    Write-Host "Added start script..." -ForegroundColor White
+
     Run npm @("pkg", "set", "scripts.start=node index.js") 
     Write-Host "Added start script..." -ForegroundColor White
 
-    Write-Host "Installing dependencies..." -ForegroundColor White
-    Run npm @("i", "-D", "playwright", "@playwright/test")
-    Run npx @("playwright", "install")
-
+    Write-Host "Installing dependencies..." -ForegroundColor White  
     Write-Host "Done!"  -ForegroundColor Green
-    Write-Host "Next:"  -ForegroundColor White
-    Write-Host "  cd $Name"
-    Write-Host "  npm start" -ForegroundColor White
+    Write-Host "Next:"  -ForegroundColor White    
+    Write-Host "  npm install" -ForegroundColor White
 }
 catch {
     Write-Host "Setup failed: $($_.Exception.Message)" -ForegroundColor Red
     Write-Host "You were in: $(Get-Location)" -ForegroundColor DarkGray
     exit 1
 }
+

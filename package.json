@@ -1,0 +1,27 @@
+{
+  "name": "playwrightjsdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "playwright": "^1.57.0",
+    "playwright-core": "^1.57.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\install.ps1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterss7/PlaywrightJsDemo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/peterss7/PlaywrightJsDemo/issues"
+  },
+  "homepage": "https://github.com/peterss7/PlaywrightJsDemo#readme"
+}
