@@ -22,13 +22,27 @@ class TitlesPage extends BasePage {
 
     // Default locator for elements containing title text
     titleLocator = process.env.TITLE_LOCATOR ?? "tr.athing span.titleline > a";
-    timestampLocator = process.env.TIMESTAMP_LOCATOR ?? "xpath=//tr[contains@class, 'athing')]/following-sibling::tr[1]//span[@class='age']";
+    timestampLocator = process.env.TIMESTAMP_LOCATOR ?? "xpath=//tr[contains(@class, 'athing')]/following-sibling::tr[1]//span[@class='age']";
 
     /**
      * @param {import('@playwright/test').Page} page 
      */
     constructor(page) {
         super(page);
+    }
+
+    async getTargetRows() {
+        const rowData = [];
+
+        while (true) {
+            const newRowData = await this.getRowData(rowData.length);
+            if (newRowData.length === 0) {
+                break;
+            }
+            rowData.push(...newRowData);
+            await this.clickByRole("link", { name: "More", exact: true });
+        }
+        return rowData;
     }
 
     /**
@@ -60,14 +74,18 @@ class TitlesPage extends BasePage {
 
     /**
      * Returns array of row data
+     * @param {number} rowDataLength
      * @param {string} titleLocator 
      * @param {string} timestampLocator 
      * @returns {Promise<RowData[]>}
      */
     async getRowData(
+        rowDataLength,
         titleLocator = this.titleLocator,
         timestampLocator = this.timestampLocator
     ) {
+        console.log("rowdata length:", rowDataLength);
+        if (rowDataLength === 100) return [];
         const titles = await this.getTitles(titleLocator);
         const timestamps = await this.getTimestamps(timestampLocator);
         const rowData = []
@@ -78,6 +96,9 @@ class TitlesPage extends BasePage {
 
         for (let i = 0; i < titles.length; i++) {
             rowData.push(new RowData(titles[i], timestamps[i]));
+            if (rowData.length + rowDataLength === 100) {
+                break;
+            }
         }
 
         return rowData;
@@ -94,7 +115,7 @@ class TitlesPage extends BasePage {
         rowData.forEach((row, i) => {
             const d = row.timestamp.split(" ")[0]?.trim();
             let currentTime = Number.isNaN(d) ? null : d;
-            
+
             // console.log("previous: ", previousTime);
 
             if (currentTime === null) {
