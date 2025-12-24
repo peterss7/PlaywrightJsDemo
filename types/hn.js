@@ -2,9 +2,10 @@
 
 /**
  * @typedef {Object} HnRow
- * @property {string} id
+ * @property {number} id
  * @property {string} title
- * @property {string} ageTitle
+ * @property {string} timestamp
+ * @property {number} unixSeconds
  */
 
 /**
@@ -13,3 +14,5 @@
  * @property {number} unixSeconds
  * @property {Date} date
  */
+
+module.export = {};
