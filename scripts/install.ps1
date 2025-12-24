@@ -1,3 +1,4 @@
+# ./scripts/install.ps1
 $ErrorActionPreference = "Stop"
 
 function Run([string]$cmd, [string[]]$arguments) {
@@ -10,11 +11,11 @@ function Run([string]$cmd, [string[]]$arguments) {
 try {
     Write-Host "Installing dependencies..." -ForegroundColor White
     Run npm @("i", "-D", "playwright", "@playwright/test")
+    Run npm @("i", "dotenv")
     Run npx @("playwright", "install")
 
     Write-Host "Done!"  -ForegroundColor Green
     Write-Host "Next:"  -ForegroundColor White
-    Write-Host "  cd $Name"
     Write-Host "  npm start" -ForegroundColor White
 }
 catch {

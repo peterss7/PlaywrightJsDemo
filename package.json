@@ -1,10 +1,10 @@
 {
   "name": "playwrightjsdemo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Welcome to the QA Wolf take home assignment for our [QA Engineer](https://www.notion.so/qawolf/QA-Wolf-QA-Engineer-Remote-156203a1e476459ea5e6ffca972d0efe) role! We appreciate your interest and look forward to seeing what you come up with.",
   "main": "index.js",
   "dependencies": {
-    "playwright": "^1.57.0",
+    "dotenv": "^17.2.3",
     "playwright-core": "^1.57.0"
   },
   "scripts": {
@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/peterss7/PlaywrightJsDemo/issues"
   },
-  "homepage": "https://github.com/peterss7/PlaywrightJsDemo#readme"
+  "homepage": "https://github.com/peterss7/PlaywrightJsDemo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "playwright": "^1.57.0"
+  }
 }

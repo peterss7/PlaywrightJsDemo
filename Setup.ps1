@@ -1,3 +1,4 @@
+# ./setup.ps1
 $ErrorActionPreference = "Stop"
 
 function Run([string]$cmd, [string[]]$arguments) {
@@ -119,6 +120,12 @@ try {
         Write-Host "Initialized repo..." -ForegroundColor White
     }
 
+    Set-Content -Encoding utf8 -Path ".gitignore" -Value @(
+        "node_modules"
+        "dotenv"
+    )
+    Write-Host "Created .gitignore..."
+
     # example variables
     $repoUrl = "https://github.com/TechWithTy/QA_Tester_Example_Project.git"
     $temp = Join-Path $env:TEMP ("seed-" + [guid]::NewGuid())
@@ -131,13 +138,14 @@ try {
 
     Write-Host "Created README.md"
     
-    Run npm @("pkg", "set", "scripts.install=powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1") 
-    Write-Host "Added start script..." -ForegroundColor White
+    Run npm @("pkg", "set", "scripts.setup=powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1") 
+    Write-Host "Added install script..." -ForegroundColor White
+    Write-Host "Running install script..."
+    Run npm@("npm", "setup")
 
     Run npm @("pkg", "set", "scripts.start=node index.js") 
     Write-Host "Added start script..." -ForegroundColor White
 
-    Write-Host "Installing dependencies..." -ForegroundColor White  
     Write-Host "Done!"  -ForegroundColor Green
     Write-Host "Next:"  -ForegroundColor White    
     Write-Host "  npm install" -ForegroundColor White
