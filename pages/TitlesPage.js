@@ -1,19 +1,9 @@
 // ./pages/TitlesPage.js
 
 const { BasePage } = require("./BasePage");
-
-class RowData {
-    /**
-     * Data of a row
-     * @param {string} title 
-     * @param {string} timestamp 
-     */
-    constructor(title, timestamp) {
-        this.title = title;
-        this.timestamp = timestamp;
-    }
-}
-
+const { parseHnTimestamp } = require("../utils/time");
+const { formatHnTitle } = require("../utils/hn");
+const { TableSelector } = require("../enums/TableSelector");
 
 /**
  * Class for extracting info from titles page
@@ -27,121 +17,97 @@ class TitlesPage extends BasePage {
     /**
      * @param {import('@playwright/test').Page} page 
      */
-    constructor(page) {
+    constructor(page, titleLocator = null, timestampLocator = null) {
         super(page);
+        // replace default values if any passed to constructor
+        if (titleLocator && typeof titleLocator === "string") {
+            this.titleLocator = titleLocator;
+        }
+        if (timestampLocator && typeof timestampLocator === "string") {
+            this.timestampLocator = timestampLocator;
+        }
     }
 
-    async getTargetRows() {
+    /**
+     * Returns first n rows of table data
+     * @param {number} n = 100
+     * @returns {Promise<HnRowData[]>}
+     */
+    async getTargetRows(n = 100) {
         const rowData = [];
 
+        // Loop until we have n rows
         while (true) {
-            const newRowData = await this.getRowData(rowData.length);
-            if (newRowData.length === 0) {
+            // A fail safe
+            if (rowData.length >= n) {
                 break;
             }
-            rowData.push(...newRowData);
+
+            // Get titles and timestamps from current page
+            const newTitles = await this.getTitles();
+            const newTimestamps = await this.getTimestamps();
+
+            // Ensure we have matching counts
+            if (newTitles.length !== newTimestamps.length) {
+                throw new Error(`Title/timestamp count mismatch: ${newTitles.length} titles vs ${newTimestamps.length} timestamps`);
+            }
+
+            // If adding all new rows would exceed n, trim the extras
+            if (newTitles.length + rowData.length > n) {
+                newTitles.splice(n - rowData.length);
+                newTimestamps.splice(n - rowData.length);
+            }
+
+            // Add new rows to rowData
+            for (let i = 0; i < newTitles.length; i++) {
+                rowData.push({ title: newTitles[i], timestamp: newTimestamps[i] });
+            }
+
+            // Check if we have enough rows
+            if (rowData.length >= n) {
+                break;
+            }
+
+            // Navigate to next page for more rows
             await this.clickByRole("link", { name: "More", exact: true });
         }
-        return rowData;
-    }
-
-    /**
-     * Get array of titles with locator
-     * @param {string} locator
-     * @returns {Promise<string[]>}
-     */
-    async getTitles(locator = this.titleLocator) {
-        const elements = this.getElements(locator);
-        return await elements.evaluateAll((els) =>
-            els.map((el) => (el.textContent || "").trim())
-        );
-    }
-
-    /**
-     * Get array of timestamps of elements.
-     * @param {timestampLocator} timestampLocator
-     * @returns {Promise<string[]>}
-     */
-    async getTimestamps(
-        timestampLocator = this.timestampLocator
-    ) {
-
-        const timestamps = this.getElements(timestampLocator);
-        return await timestamps.evaluateAll((els) =>
-            els.map((el) => (el.getAttribute("title") || "").trim())
-        );
-    }
-
-    /**
-     * Returns array of row data
-     * @param {number} rowDataLength
-     * @param {string} titleLocator 
-     * @param {string} timestampLocator 
-     * @returns {Promise<RowData[]>}
-     */
-    async getRowData(
-        rowDataLength,
-        titleLocator = this.titleLocator,
-        timestampLocator = this.timestampLocator
-    ) {
-        console.log("rowdata length:", rowDataLength);
-        if (rowDataLength === 100) return [];
-        const titles = await this.getTitles(titleLocator);
-        const timestamps = await this.getTimestamps(timestampLocator);
-        const rowData = []
-
-        if (titles.length !== timestamps.length) {
-            throw new Error(`Rowdata Mismatch: titles=${titles.length}, timestamps=${timestamps.length}`);
-        }
-
-        for (let i = 0; i < titles.length; i++) {
-            rowData.push(new RowData(titles[i], timestamps[i]));
-            if (rowData.length + rowDataLength === 100) {
-                break;
-            }
-        }
 
         return rowData;
     }
 
     /**
-     * Returns true if data is in chronological order
-     * @param {RowData[]} rowData 
-     * @returns {object}
+     * Returns titles from current page
+     * @returns {Promise<string[]>}
      */
-    static getIsChronological(rowData) {
-        let previousTime = null;
+    async getTitles() {
+        // Get title elements
+        const newTitleElements = this.getElements(this.titleLocator);
 
-        rowData.forEach((row, i) => {
-            const d = row.timestamp.split(" ")[0]?.trim();
-            let currentTime = Number.isNaN(d) ? null : d;
+        // Ensure we have some elements
+        if (!newTitleElements || newTitleElements.count === 0) {
+            throw new Error("No title elements, but more were expected: ", this.titleLocator);
+        }
 
-            // console.log("previous: ", previousTime);
+        // Extract titles
+        const newTitles = await this.getAllRowValues(TableSelector.TEXT_CONTENT, (await newTitleElements));
 
-            if (currentTime === null) {
-                throw new Error("Parsed invalid Time from row: ", row.title);
-            }
+        // Format titles and return
+        return newTitles.map(t => formatHnTitle(t));
+    }
 
-            if (previousTime === null) {
-                previousTime = currentTime;
-            }
-            else {
-                if (currentTime > previousTime) {
-                    return {
-                        ok: false,
-                        errorIndex: i,
-                        reason:
-                            `Out of chronological order.` +
-                            `Title: ${row.title}.` +
-                            `Timestamp ${currentTime} is more recent than previous ${previousTime}.`
-                    };
-                }
-                previousTime = currentTime;
-            }
-        });
-
-        return { ok: true }
+    /**
+     * Returns timestamps from current page
+     * @returns {Promise<number[]>}
+     */
+    async getTimestamps() {
+        const newTimestampElements = this.getElements(this.timestampLocator);
+        if (!newTimestampElements || newTimestampElements.count === 0) {
+            throw new Error("No timestamp elements, but more were expected: ", this.timestampLocator);
+        }
+        const newTimestamps = await this.getAllRowValues(TableSelector.ATTRIBUTE, (await newTimestampElements));
+        return newTimestamps.map(ts => parseHnTimestamp(ts).unixSeconds);
     }
 }
+
 
 module.exports = { TitlesPage };

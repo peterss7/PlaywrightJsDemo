@@ -1,12 +1,15 @@
 // tests/titlesPage.spec.js
 const { test, expect } = require("@playwright/test");
-// const { PartA } = require("../src/pages/PartA");
+const { TitlesPage } = require("../pages/TitlesPage");
+const { getIsNewestToOldest } = require("../utils/time");
 
-// test("Part A does the thing", async ({ page }) => {
-//     const partA = new PartA(page);
+test("TitlesPage top 100 entries are in chronological order.", async ({ page }) => {
+    const titlesPage = new TitlesPage(page);
 
-//     await partA.open();
-//     await partA.doThing();
+    await titlesPage.goto("/newest");
 
-//     await expect(page.locator("#result")).toHaveText(/success/i);
-// });
+    const rowData = await titlesPage.getTargetRows();
+    const result = getIsNewestToOldest(rowData);
+
+    expect(result.ok, result.message ?? "Not chronological").toBeTruthy();
+});

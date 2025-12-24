@@ -37,7 +37,6 @@ async function sortHackerNewsArticles() {
 
     // close browser
     await browser.close();
-
 }
 
 (async () => {
