@@ -134,7 +134,6 @@ try {
     if (-not (Test-Path -Path ".gitignore")) {
         Set-Content -Encoding utf8 -Path ".gitignore" -Value @(
             "node_modules"
-            "dotenv"
         )
         Write-Host "Created .gitignore..." -ForegroundColor White
     }
