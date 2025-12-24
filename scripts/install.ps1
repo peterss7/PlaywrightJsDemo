@@ -8,10 +8,11 @@ function Run([string]$cmd, [string[]]$arguments) {
     }
 }
 
+Set-Location -Path "../"
+
 try {
     Write-Host "Installing dependencies..." -ForegroundColor White
-    Run npm @("i", "-D", "playwright", "@playwright/test")
-    Run npm @("i", "dotenv")
+    Run npm @("i", "-D", "playwright", "@playwright/test", "dotenv")
     Run npx @("playwright", "install")
 
     Write-Host "Done!"  -ForegroundColor Green
