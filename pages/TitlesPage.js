@@ -32,92 +32,86 @@ class TitlesPage extends BasePage {
         }
     }
 
-
-    /**
-     * Gets all rows from what is currently visible
-     * @param {BaseResult} result 
-     * @returns {BaseResult}
-     */
-    async getCurrentHnRows(result) {
-        const rows = await this.page.locator("tr.athing").evaluateAll((things) => {
-            return things.map((tr) => {
-                const id = tr.getAttribute("id") ?? "";
-                const title = tr.querySelector("span.titleline > a")?.textContent?.trim() ?? "";
-
-                const sub = tr.nextElementSibling;
-                const timestamp = sub?.querySelector("span.age")?.getAttribute("title") ?? "";
-
-                return { id, title, timestamp };
-            });
-        });
-
-        console.log("res in getCur: ", result);
-
-        return { ...result, data: rows };
-    }
-
     /**
      * Returns first n rows of table data
      * @param {number} n = 100
-     * @returns {BaseResult}
+     * @returns {Promise<HnRowData[]>}
      */
-    async getHnRows(n = 100) {
-        const result = createResult();
+    async getTargetRows(n = 100) {
         const rowData = [];
-        
-        console.log("first res: ", result);
-        const t = this.getCurrentHnRows(result);
-
-        console.log(`ok: ${t.ok}, message: ${t.message}`);
-
-        return result;
-
 
         // Loop until we have n rows
-        // while (true) {
-        //     // A fail safe
-        //     if (rowData.length >= n) {
-        //         break;
-        //     }
+        while (true) {
+            // A fail safe
+            if (rowData.length >= n) {
+                break;
+            }
+            // Get titles and timestamps from current page
+            const newTitles = await this.getTitles();
+            const newTimestamps = await this.getTimestamps();
+            // console.log(`timestamps: ${newTimestamps}`);
 
-        //     const newRowsResult = await this.getCurrentHnRows(result);
+            // Ensure we have matching counts
+            if (newTitles.length !== newTimestamps.length) {
+                throw new Error(`Title/timestamp count mismatch: ${newTitles.length} titles vs ${newTimestamps.length} timestamps`);
+            }
 
-        //     if (!newRowsResult.ok) {
-        //         return newRowsResult;
-        //     }
+            // If adding all new rows would exceed n, trim the extras
+            if (newTitles.length + rowData.length > n) {
+                newTitles.splice(n - rowData.length);
+                newTimestamps.splice(n - rowData.length);
+            }
 
-        //     const newRows = newRowsResult.data;
+            // Add new rows to rowData
+            for (let i = 0; i < newTitles.length; i++) {
+                rowData.push({ title: newTitles[i], timestamp: newTimestamps[i] });
+            }
 
-        //     if (newRows.length + rowData.length > n) {
-        //         newRows.splice(n - rowData.length);
-        //     }
+            // Check if we have enough rows
+            if (rowData.length >= n) {
+                break;
+            }
 
-        //     // Add new rows to rowData
-        //     for (let i = 0; i < newRows.length; i++) {
-        //         const unixSecondsResult = parseHnTimestamp(newRows[i].timestamp, newRows[i].id);
-        //         if (!unixSecondsResult.ok) {
-        //             return unixSecondsResult;
-        //         }
-        //         rowData.push({ id: newRows[i].id, title: newRows[i].title, timestamp: newRows[i].timestamp, unixSeconds: unixSecondsResult.data.unixSeconds });
-        //     }
+            // Navigate to next page for more rows
+            await this.clickButton("a.morelink", "id", "tr.athing");
+        }
 
-        //     // Check if we have enough rows
-        //     if (rowData.length >= n) {
-        //         break;
-        //     }
+        return rowData;
+    }
 
-        //     // Navigate to next page for more rows
-        //     const more = this.page.getByRole("link", { name: "More" }).first();
-        //     await more.scrollIntoViewIfNeeded();
-        //     await more.click();
+    /**
+     * Returns titles from current page
+     * @returns {Promise<string[]>}
+     */
+    async getTitles() {
+        // Get title elements
+        const newTitleElements = this.getElements(this.titleLocator);
 
-        // }
+        // Ensure we have some elements
+        if (!newTitleElements || newTitleElements.count === 0) {
+            throw new Error("No title elements, but more were expected: ", this.titleLocator);
+        }
 
-        // result.data = rowData;
+        // Extract titles
+        const newTitles = await this.getAllRowValues(TableSelector.TEXT_CONTENT, (await newTitleElements));
 
-        // return result;
+        // Format titles and return
+        return newTitles.map(t => formatHnTitle(t));
+    }
+
+    /**
+     * Returns timestamps from current page
+     * @returns {Promise<number[]>}
+     */
+    async getTimestamps() {
+        const newTimestampElements = await this.getElements(this.timestampLocator);
+        console.log(`new timestamps count: ${newTimestampElements.count}`);
+        if (!newTimestampElements || newTimestampElements.count === 0) {
+            throw new Error("No timestamp elements, but more were expected: ", this.timestampLocator);
+        }
+        const newTimestamps = await this.getAllRowValues(TableSelector.ATTRIBUTE, newTimestampElements);
+        return newTimestamps.map(ts => parseHnTimestamp(ts).unixSeconds);
     }
 }
-
 
 module.exports = { TitlesPage };

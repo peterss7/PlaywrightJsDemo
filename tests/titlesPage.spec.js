@@ -10,8 +10,11 @@ test("TitlesPage top 100 entries are in chronological order.", async ({ page }) 
 
     await titlesPage.goto("/newest");
 
-    const rowDataResult = await titlesPage.getHnRows();
-    // const result = checkNewestToOldest(rowDataResult.data);
+    const rowDataResult = await titlesPage.getTargetRows();
+    // console.log(`rowData result: ${rowDataResult}`);
+    const result = checkNewestToOldest(rowDataResult.data.message);
 
-    // expect(result.ok, result.message).toBeTruthy();
+    // console.log(`Final Result: ${result.ok}, ${result.message}`);
+
+    expect(result.ok, result.message).toBeTruthy();
 });

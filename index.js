@@ -31,9 +31,9 @@ async function sortHackerNewsArticles() {
     expect(TitlesPage.getIsChronological(rowData).ok).toBe(true);
 
     // Output row data
-    rowData.forEach((row, index) => {
-        console.log(`${index + 1}. ${row.timestamp} - ${row.title}`);
-    });
+    // rowData.forEach((row, index) => {
+    //     console.log(`${index + 1}. ${row.timestamp} - ${row.title}`);
+    // });
 
     // close browser
     await browser.close();

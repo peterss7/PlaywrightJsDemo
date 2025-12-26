@@ -5,12 +5,12 @@ const TableSelector = require("../enums/TableSelector");
 /**
  * Class for the most basic page functions
  */
-class BasePage {    
+class BasePage {
     // Handles data extraction from table
     static valueModeHandlers = {
         TEXT_CONTENT: (element) => element.textContent?.trim() ?? "",
         ATTRIBUTE: (element, attribute) => element.getAttribute(attribute) ?? "",
-    };    
+    };
 
     /**
     * @param {import('@playwright/test').Page} page 
@@ -29,20 +29,38 @@ class BasePage {
     }
 
     /**
-     * Click element by role
-     * @param {string} role 
-     * @param {import('@playwright/test').LocatorOptions} options 
+     * Click button, wait for load after
+     * @param {string} buttonLocator 
+     * @param {string} attribute 
+     * @param {string} rowLocator 
      */
-    async clickByRole(role, options = null) {
-        await this.page.getByRole(role, options).click();
-        await this.page.waitForLoadState("domcontentloaded");
+    async clickButton(buttonLocator, attribute, rowLocator = null) {
+        if (rowLocator !== null) {
+            
+            const t = await this.page.locator(rowLocator);
+            // console.log(`t: ${t}`);
+            const firstId = await this.page.locator(rowLocator).first().getAttribute(attribute);
+
+            await Promise.all([
+                this.page.waitForLoadState("domcontentloaded"),
+                this.page.locator(buttonLocator).click(),
+            ]);
+
+            // ensure content changed (prevents re-reading same page)
+            await this.page.waitForFunction(
+                ({ attribute, rowLocator, firstId }) =>
+                    document.querySelector(rowLocator)?.getAttribute(attribute) !== firstId,
+                { attribute, attribute, firstId }
+            );
+        }
     }
+
     /**
      * @param {string} locator
      * @returns {import('@playwright/test').Locator}
      */
-    getElements(locator){
-        return this.page.locator(locator);
+    async getElements(locator) {
+        return await this.page.locator(locator);
     }
 
     /**
@@ -52,16 +70,16 @@ class BasePage {
      * @param {*} attribute 
      * @returns 
      */
-    getRowValue(mode, element, attribute){
-        console.log("mode in getRowValue: ", mode);
+    getRowValue(mode, element, attribute) {
+        // console.log("mode in getRowValue: ", mode);
         const fn = this.valueModeHandlers[mode];
         if (!fn) throw new Error("Mode not recognized: ", mode);
         return fn(element, attribute);
     }
 
-    async getAllRowValues(mode, elements, attribute="title"){
+    async getAllRowValues(mode, elements, attribute = "title") {
         return await elements.evaluateAll((els, args) => {
-            const {mode, attribute} = args;
+            const { mode, attribute } = args;
 
             const handlers = {
                 TEXT_CONTENT: (element) => element.textContent?.trim() ?? "",
@@ -73,7 +91,7 @@ class BasePage {
                 if (!fn) throw new Error("Mode not recognized: ", mode);
                 return fn(el, attribute);
             });
-        }, {mode, attribute});
+        }, { mode, attribute });
     }
 }
 

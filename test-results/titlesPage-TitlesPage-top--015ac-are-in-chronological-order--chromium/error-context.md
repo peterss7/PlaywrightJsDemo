@@ -1,0 +1,1132 @@
+# Page snapshot
+
+```yaml
+- table [ref=e3]:
+  - rowgroup [ref=e4]:
+    - row "Hacker Newsnew | past | comments | ask | show | jobs | submit login" [ref=e5]:
+      - cell "Hacker Newsnew | past | comments | ask | show | jobs | submit login" [ref=e6]:
+        - table [ref=e7]:
+          - rowgroup [ref=e8]:
+            - row "Hacker Newsnew | past | comments | ask | show | jobs | submit login" [ref=e9]:
+              - cell [ref=e10]:
+                - link [ref=e11] [cursor=pointer]:
+                  - /url: https://news.ycombinator.com
+                  - img [ref=e12]
+              - cell "Hacker Newsnew | past | comments | ask | show | jobs | submit" [ref=e13]:
+                - generic [ref=e14]:
+                  - link "Hacker News" [ref=e16] [cursor=pointer]:
+                    - /url: news
+                  - link "new" [ref=e18] [cursor=pointer]:
+                    - /url: newest
+                  - text: "|"
+                  - link "past" [ref=e19] [cursor=pointer]:
+                    - /url: front
+                  - text: "|"
+                  - link "comments" [ref=e20] [cursor=pointer]:
+                    - /url: newcomments
+                  - text: "|"
+                  - link "ask" [ref=e21] [cursor=pointer]:
+                    - /url: ask
+                  - text: "|"
+                  - link "show" [ref=e22] [cursor=pointer]:
+                    - /url: show
+                  - text: "|"
+                  - link "jobs" [ref=e23] [cursor=pointer]:
+                    - /url: jobs
+                  - text: "|"
+                  - link "submit" [ref=e24] [cursor=pointer]:
+                    - /url: submit
+              - cell "login" [ref=e25]:
+                - link "login" [ref=e27] [cursor=pointer]:
+                  - /url: login?goto=newest%3Fnext%3D46393625%26n%3D91
+    - row [ref=e28]
+    - row [ref=e29]:
+      - cell [ref=e30]:
+        - table [ref=e31]:
+          - rowgroup [ref=e32]:
+            - row "91. upvote What Being a Billionire Looks Like [video] (youtube.com)" [ref=e33]:
+              - cell "91." [ref=e34]
+              - cell "upvote" [ref=e35]:
+                - link "upvote" [ref=e37] [cursor=pointer]:
+                  - /url: vote?id=46393625&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e38]
+              - cell "What Being a Billionire Looks Like [video] (youtube.com)" [ref=e39]:
+                - generic [ref=e40]:
+                  - link "What Being a Billionire Looks Like [video]" [ref=e41] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=PpyPB3BF-hQ
+                  - generic [ref=e42]:
+                    - text: (
+                    - link "youtube.com" [ref=e43] [cursor=pointer]:
+                      - /url: from?site=youtube.com
+                    - text: )
+            - row "2 points by lisper 2 hours ago | hide | past | 1 comment" [ref=e44]:
+              - cell [ref=e45]
+              - cell "2 points by lisper 2 hours ago | hide | past | 1 comment" [ref=e46]:
+                - generic [ref=e47]:
+                  - text: 2 points by
+                  - link "lisper" [ref=e48] [cursor=pointer]:
+                    - /url: user?id=lisper
+                  - generic "2025-12-26T16:37:34 1766767054" [ref=e49]:
+                    - link "2 hours ago" [ref=e50] [cursor=pointer]:
+                      - /url: item?id=46393625
+                  - text: "|"
+                  - link "hide" [ref=e51] [cursor=pointer]:
+                    - /url: hide?id=46393625&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e52] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=What%20Being%20a%20Billionire%20Looks%20Like&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "1 comment" [ref=e53] [cursor=pointer]:
+                    - /url: item?id=46393625
+            - row [ref=e54]
+            - 'row "92. upvote Show HN: QBridge, a clean, modern iOS alternative to Cordova and Capacitor (github.com/qbix)" [ref=e55]':
+              - cell "92." [ref=e56]
+              - cell "upvote" [ref=e57]:
+                - link "upvote" [ref=e59] [cursor=pointer]:
+                  - /url: vote?id=46393624&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e60]
+              - 'cell "Show HN: QBridge, a clean, modern iOS alternative to Cordova and Capacitor (github.com/qbix)" [ref=e61]':
+                - generic [ref=e62]:
+                  - 'link "Show HN: QBridge, a clean, modern iOS alternative to Cordova and Capacitor" [ref=e63] [cursor=pointer]':
+                    - /url: https://github.com/Qbix/QBridge
+                  - generic [ref=e64]:
+                    - text: (
+                    - link "github.com/qbix" [ref=e65] [cursor=pointer]:
+                      - /url: from?site=github.com/qbix
+                    - text: )
+            - row "2 points by EGreg 2 hours ago | hide | past | 2 comments" [ref=e66]:
+              - cell [ref=e67]
+              - cell "2 points by EGreg 2 hours ago | hide | past | 2 comments" [ref=e68]:
+                - generic [ref=e69]:
+                  - text: 2 points by
+                  - link "EGreg" [ref=e70] [cursor=pointer]:
+                    - /url: user?id=EGreg
+                  - generic "2025-12-26T16:37:31 1766767051" [ref=e71]:
+                    - link "2 hours ago" [ref=e72] [cursor=pointer]:
+                      - /url: item?id=46393624
+                  - text: "|"
+                  - link "hide" [ref=e73] [cursor=pointer]:
+                    - /url: hide?id=46393624&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e74] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Show%20HN%3A%20QBridge%2C%20a%20clean%2C%20modern%20iOS%20alternative%20to%20Cordova%20and%20Capacitor&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "2 comments" [ref=e75] [cursor=pointer]:
+                    - /url: item?id=46393624
+            - row [ref=e76]
+            - row "93. upvote A Transparency-Focused Platform Supporting Food Relief Charities (nourishlink.org)" [ref=e77]:
+              - cell "93." [ref=e78]
+              - cell "upvote" [ref=e79]:
+                - link "upvote" [ref=e81] [cursor=pointer]:
+                  - /url: vote?id=46393614&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e82]
+              - cell "A Transparency-Focused Platform Supporting Food Relief Charities (nourishlink.org)" [ref=e83]:
+                - generic [ref=e84]:
+                  - link "A Transparency-Focused Platform Supporting Food Relief Charities" [ref=e85] [cursor=pointer]:
+                    - /url: https://nourishlink.org/
+                  - generic [ref=e86]:
+                    - text: (
+                    - link "nourishlink.org" [ref=e87] [cursor=pointer]:
+                      - /url: from?site=nourishlink.org
+                    - text: )
+            - row "1 point by jasongreenwood 2 hours ago | hide | past | 1 comment" [ref=e88]:
+              - cell [ref=e89]
+              - cell "1 point by jasongreenwood 2 hours ago | hide | past | 1 comment" [ref=e90]:
+                - generic [ref=e91]:
+                  - text: 1 point by
+                  - link "jasongreenwood" [ref=e92] [cursor=pointer]:
+                    - /url: user?id=jasongreenwood
+                  - generic "2025-12-26T16:36:41 1766767001" [ref=e93]:
+                    - link "2 hours ago" [ref=e94] [cursor=pointer]:
+                      - /url: item?id=46393614
+                  - text: "|"
+                  - link "hide" [ref=e95] [cursor=pointer]:
+                    - /url: hide?id=46393614&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e96] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=A%20Transparency-Focused%20Platform%20Supporting%20Food%20Relief%20Charities&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "1 comment" [ref=e97] [cursor=pointer]:
+                    - /url: item?id=46393614
+            - row [ref=e98]
+            - row "94. upvote I built a quiet site for finding ambient albums while working (ambientmusic.com)" [ref=e99]:
+              - cell "94." [ref=e100]
+              - cell "upvote" [ref=e101]:
+                - link "upvote" [ref=e103] [cursor=pointer]:
+                  - /url: vote?id=46393609&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e104]
+              - cell "I built a quiet site for finding ambient albums while working (ambientmusic.com)" [ref=e105]:
+                - generic [ref=e106]:
+                  - link "I built a quiet site for finding ambient albums while working" [ref=e107] [cursor=pointer]:
+                    - /url: https://ambientmusic.com/
+                  - generic [ref=e108]:
+                    - text: (
+                    - link "ambientmusic.com" [ref=e109] [cursor=pointer]:
+                      - /url: from?site=ambientmusic.com
+                    - text: )
+            - row "5 points by developvr 2 hours ago | hide | past | 1 comment" [ref=e110]:
+              - cell [ref=e111]
+              - cell "5 points by developvr 2 hours ago | hide | past | 1 comment" [ref=e112]:
+                - generic [ref=e113]:
+                  - text: 5 points by
+                  - link "developvr" [ref=e114] [cursor=pointer]:
+                    - /url: user?id=developvr
+                  - generic "2025-12-26T16:36:14 1766766974" [ref=e115]:
+                    - link "2 hours ago" [ref=e116] [cursor=pointer]:
+                      - /url: item?id=46393609
+                  - text: "|"
+                  - link "hide" [ref=e117] [cursor=pointer]:
+                    - /url: hide?id=46393609&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e118] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=I%20built%20a%20quiet%20site%20for%20finding%20ambient%20albums%20while%20working&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "1 comment" [ref=e119] [cursor=pointer]:
+                    - /url: item?id=46393609
+            - row [ref=e120]
+            - 'row "95. upvote Show HN: Essential travel info on you iPhone lock screen (nomad-hud-landing.vercel.app)" [ref=e121]':
+              - cell "95." [ref=e122]
+              - cell "upvote" [ref=e123]:
+                - link "upvote" [ref=e125] [cursor=pointer]:
+                  - /url: vote?id=46393607&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e126]
+              - 'cell "Show HN: Essential travel info on you iPhone lock screen (nomad-hud-landing.vercel.app)" [ref=e127]':
+                - generic [ref=e128]:
+                  - 'link "Show HN: Essential travel info on you iPhone lock screen" [ref=e129] [cursor=pointer]':
+                    - /url: https://nomad-hud-landing.vercel.app
+                  - generic [ref=e130]:
+                    - text: (
+                    - link "nomad-hud-landing.vercel.app" [ref=e131] [cursor=pointer]:
+                      - /url: from?site=nomad-hud-landing.vercel.app
+                    - text: )
+            - row "1 point by gotzonza 2 hours ago | hide | past | discuss" [ref=e132]:
+              - cell [ref=e133]
+              - cell "1 point by gotzonza 2 hours ago | hide | past | discuss" [ref=e134]:
+                - generic [ref=e135]:
+                  - text: 1 point by
+                  - link "gotzonza" [ref=e136] [cursor=pointer]:
+                    - /url: user?id=gotzonza
+                  - generic "2025-12-26T16:36:00 1766766960" [ref=e137]:
+                    - link "2 hours ago" [ref=e138] [cursor=pointer]:
+                      - /url: item?id=46393607
+                  - text: "|"
+                  - link "hide" [ref=e139] [cursor=pointer]:
+                    - /url: hide?id=46393607&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e140] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Show%20HN%3A%20Essential%20travel%20info%20on%20you%20iPhone%20lock%20screen&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e141] [cursor=pointer]:
+                    - /url: item?id=46393607
+            - row [ref=e142]
+            - row "96. upvote Platformatic Open Source Software (platformatic.dev)" [ref=e143]:
+              - cell "96." [ref=e144]
+              - cell "upvote" [ref=e145]:
+                - link "upvote" [ref=e147] [cursor=pointer]:
+                  - /url: vote?id=46393603&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e148]
+              - cell "Platformatic Open Source Software (platformatic.dev)" [ref=e149]:
+                - generic [ref=e150]:
+                  - link "Platformatic Open Source Software" [ref=e151] [cursor=pointer]:
+                    - /url: https://docs.platformatic.dev/
+                  - generic [ref=e152]:
+                    - text: (
+                    - link "platformatic.dev" [ref=e153] [cursor=pointer]:
+                      - /url: from?site=platformatic.dev
+                    - text: )
+            - row "1 point by eustoria 2 hours ago | hide | past | discuss" [ref=e154]:
+              - cell [ref=e155]
+              - cell "1 point by eustoria 2 hours ago | hide | past | discuss" [ref=e156]:
+                - generic [ref=e157]:
+                  - text: 1 point by
+                  - link "eustoria" [ref=e158] [cursor=pointer]:
+                    - /url: user?id=eustoria
+                  - generic "2025-12-26T16:35:26 1766766926" [ref=e159]:
+                    - link "2 hours ago" [ref=e160] [cursor=pointer]:
+                      - /url: item?id=46393603
+                  - text: "|"
+                  - link "hide" [ref=e161] [cursor=pointer]:
+                    - /url: hide?id=46393603&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e162] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Platformatic%20Open%20Source%20Software&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e163] [cursor=pointer]:
+                    - /url: item?id=46393603
+            - row [ref=e164]
+            - row "97. upvote TailwindCSS Animation Snippets (alexandru.so)" [ref=e165]:
+              - cell "97." [ref=e166]
+              - cell "upvote" [ref=e167]:
+                - link "upvote" [ref=e169] [cursor=pointer]:
+                  - /url: vote?id=46393577&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e170]
+              - cell "TailwindCSS Animation Snippets (alexandru.so)" [ref=e171]:
+                - generic [ref=e172]:
+                  - link "TailwindCSS Animation Snippets" [ref=e173] [cursor=pointer]:
+                    - /url: https://snippets.alexandru.so/
+                  - generic [ref=e174]:
+                    - text: (
+                    - link "alexandru.so" [ref=e175] [cursor=pointer]:
+                      - /url: from?site=alexandru.so
+                    - text: )
+            - row "2 points by eustoria 2 hours ago | hide | past | discuss" [ref=e176]:
+              - cell [ref=e177]
+              - cell "2 points by eustoria 2 hours ago | hide | past | discuss" [ref=e178]:
+                - generic [ref=e179]:
+                  - text: 2 points by
+                  - link "eustoria" [ref=e180] [cursor=pointer]:
+                    - /url: user?id=eustoria
+                  - generic "2025-12-26T16:33:06 1766766786" [ref=e181]:
+                    - link "2 hours ago" [ref=e182] [cursor=pointer]:
+                      - /url: item?id=46393577
+                  - text: "|"
+                  - link "hide" [ref=e183] [cursor=pointer]:
+                    - /url: hide?id=46393577&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e184] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=TailwindCSS%20Animation%20Snippets&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e185] [cursor=pointer]:
+                    - /url: item?id=46393577
+            - row [ref=e186]
+            - row "98. upvote Everything Is a Number (francescocarlucci.com)" [ref=e187]:
+              - cell "98." [ref=e188]
+              - cell "upvote" [ref=e189]:
+                - link "upvote" [ref=e191] [cursor=pointer]:
+                  - /url: vote?id=46393535&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e192]
+              - cell "Everything Is a Number (francescocarlucci.com)" [ref=e193]:
+                - generic [ref=e194]:
+                  - link "Everything Is a Number" [ref=e195] [cursor=pointer]:
+                    - /url: https://francescocarlucci.com/blog/everything-is-a-number
+                  - generic [ref=e196]:
+                    - text: (
+                    - link "francescocarlucci.com" [ref=e197] [cursor=pointer]:
+                      - /url: from?site=francescocarlucci.com
+                    - text: )
+            - row "3 points by frenxi 2 hours ago | hide | past | discuss" [ref=e198]:
+              - cell [ref=e199]
+              - cell "3 points by frenxi 2 hours ago | hide | past | discuss" [ref=e200]:
+                - generic [ref=e201]:
+                  - text: 3 points by
+                  - link "frenxi" [ref=e202] [cursor=pointer]:
+                    - /url: user?id=frenxi
+                  - generic "2025-12-26T16:28:25 1766766505" [ref=e203]:
+                    - link "2 hours ago" [ref=e204] [cursor=pointer]:
+                      - /url: item?id=46393535
+                  - text: "|"
+                  - link "hide" [ref=e205] [cursor=pointer]:
+                    - /url: hide?id=46393535&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e206] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Everything%20Is%20a%20Number&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e207] [cursor=pointer]:
+                    - /url: item?id=46393535
+            - row [ref=e208]
+            - row "99. upvote Interviewing for ML/AI Engineers (moderndescartes.com)" [ref=e209]:
+              - cell "99." [ref=e210]
+              - cell "upvote" [ref=e211]:
+                - link "upvote" [ref=e213] [cursor=pointer]:
+                  - /url: vote?id=46393532&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e214]
+              - cell "Interviewing for ML/AI Engineers (moderndescartes.com)" [ref=e215]:
+                - generic [ref=e216]:
+                  - link "Interviewing for ML/AI Engineers" [ref=e217] [cursor=pointer]:
+                    - /url: https://www.moderndescartes.com/essays/ml_eng_interviewing/
+                  - generic [ref=e218]:
+                    - text: (
+                    - link "moderndescartes.com" [ref=e219] [cursor=pointer]:
+                      - /url: from?site=moderndescartes.com
+                    - text: )
+            - row "1 point by brilee 2 hours ago | hide | past | discuss" [ref=e220]:
+              - cell [ref=e221]
+              - cell "1 point by brilee 2 hours ago | hide | past | discuss" [ref=e222]:
+                - generic [ref=e223]:
+                  - text: 1 point by
+                  - link "brilee" [ref=e224] [cursor=pointer]:
+                    - /url: user?id=brilee
+                  - generic "2025-12-26T16:27:38 1766766458" [ref=e225]:
+                    - link "2 hours ago" [ref=e226] [cursor=pointer]:
+                      - /url: item?id=46393532
+                  - text: "|"
+                  - link "hide" [ref=e227] [cursor=pointer]:
+                    - /url: hide?id=46393532&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e228] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Interviewing%20for%20ML%2FAI%20Engineers&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e229] [cursor=pointer]:
+                    - /url: item?id=46393532
+            - row [ref=e230]
+            - row "100. upvote Hollywood cozied up to AI in 2025 and had nothing good to show for it (theverge.com)" [ref=e231]:
+              - cell "100." [ref=e232]
+              - cell "upvote" [ref=e233]:
+                - link "upvote" [ref=e235] [cursor=pointer]:
+                  - /url: vote?id=46393524&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e236]
+              - cell "Hollywood cozied up to AI in 2025 and had nothing good to show for it (theverge.com)" [ref=e237]:
+                - generic [ref=e238]:
+                  - link "Hollywood cozied up to AI in 2025 and had nothing good to show for it" [ref=e239] [cursor=pointer]:
+                    - /url: https://www.theverge.com/ai-artificial-intelligence/848119/hollywood-film-tv-ai-2025
+                  - generic [ref=e240]:
+                    - text: (
+                    - link "theverge.com" [ref=e241] [cursor=pointer]:
+                      - /url: from?site=theverge.com
+                    - text: )
+            - row "6 points by MilnerRoute 2 hours ago | hide | past | discuss" [ref=e242]:
+              - cell [ref=e243]
+              - cell "6 points by MilnerRoute 2 hours ago | hide | past | discuss" [ref=e244]:
+                - generic [ref=e245]:
+                  - text: 6 points by
+                  - link "MilnerRoute" [ref=e246] [cursor=pointer]:
+                    - /url: user?id=MilnerRoute
+                  - generic "2025-12-26T16:26:54 1766766414" [ref=e247]:
+                    - link "2 hours ago" [ref=e248] [cursor=pointer]:
+                      - /url: item?id=46393524
+                  - text: "|"
+                  - link "hide" [ref=e249] [cursor=pointer]:
+                    - /url: hide?id=46393524&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e250] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Hollywood%20cozied%20up%20to%20AI%20in%202025%20and%20had%20nothing%20good%20to%20show%20for%20it&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e251] [cursor=pointer]:
+                    - /url: item?id=46393524
+            - row [ref=e252]
+            - row "101. upvote Calorie Restriction Attenuates Aging Signatures in White Matter Oligodendrocytes (wiley.com)" [ref=e253]:
+              - cell "101." [ref=e254]
+              - cell "upvote" [ref=e255]:
+                - link "upvote" [ref=e257] [cursor=pointer]:
+                  - /url: vote?id=46393495&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e258]
+              - cell "Calorie Restriction Attenuates Aging Signatures in White Matter Oligodendrocytes (wiley.com)" [ref=e259]:
+                - generic [ref=e260]:
+                  - link "Calorie Restriction Attenuates Aging Signatures in White Matter Oligodendrocytes" [ref=e261] [cursor=pointer]:
+                    - /url: https://onlinelibrary.wiley.com/doi/10.1111/acel.70298
+                  - generic [ref=e262]:
+                    - text: (
+                    - link "wiley.com" [ref=e263] [cursor=pointer]:
+                      - /url: from?site=wiley.com
+                    - text: )
+            - row "1 point by PaulHoule 2 hours ago | hide | past | discuss" [ref=e264]:
+              - cell [ref=e265]
+              - cell "1 point by PaulHoule 2 hours ago | hide | past | discuss" [ref=e266]:
+                - generic [ref=e267]:
+                  - text: 1 point by
+                  - link "PaulHoule" [ref=e268] [cursor=pointer]:
+                    - /url: user?id=PaulHoule
+                  - generic "2025-12-26T16:24:12 1766766252" [ref=e269]:
+                    - link "2 hours ago" [ref=e270] [cursor=pointer]:
+                      - /url: item?id=46393495
+                  - text: "|"
+                  - link "hide" [ref=e271] [cursor=pointer]:
+                    - /url: hide?id=46393495&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e272] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Calorie%20Restriction%20Attenuates%20Aging%20Signatures%20in%20White%20Matter%20Oligodendrocytes&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e273] [cursor=pointer]:
+                    - /url: item?id=46393495
+            - row [ref=e274]
+            - 'row "102. upvote Tinykit: Self-hosted Lovable/v0 alternative. Realtime database, storage included (github.com/tinykit-studio)" [ref=e275]':
+              - cell "102." [ref=e276]
+              - cell "upvote" [ref=e277]:
+                - link "upvote" [ref=e279] [cursor=pointer]:
+                  - /url: vote?id=46393493&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e280]
+              - 'cell "Tinykit: Self-hosted Lovable/v0 alternative. Realtime database, storage included (github.com/tinykit-studio)" [ref=e281]':
+                - generic [ref=e282]:
+                  - 'link "Tinykit: Self-hosted Lovable/v0 alternative. Realtime database, storage included" [ref=e283] [cursor=pointer]':
+                    - /url: https://github.com/tinykit-studio/tinykit
+                  - generic [ref=e284]:
+                    - text: (
+                    - link "github.com/tinykit-studio" [ref=e285] [cursor=pointer]:
+                      - /url: from?site=github.com/tinykit-studio
+                    - text: )
+            - row "8 points by thunderbong 2 hours ago | hide | past | discuss" [ref=e286]:
+              - cell [ref=e287]
+              - cell "8 points by thunderbong 2 hours ago | hide | past | discuss" [ref=e288]:
+                - generic [ref=e289]:
+                  - text: 8 points by
+                  - link "thunderbong" [ref=e290] [cursor=pointer]:
+                    - /url: user?id=thunderbong
+                  - generic "2025-12-26T16:23:59 1766766239" [ref=e291]:
+                    - link "2 hours ago" [ref=e292] [cursor=pointer]:
+                      - /url: item?id=46393493
+                  - text: "|"
+                  - link "hide" [ref=e293] [cursor=pointer]:
+                    - /url: hide?id=46393493&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e294] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Tinykit%3A%20Self-hosted%20Lovable%2Fv0%20alternative.%20Realtime%20database%2C%20storage%20included&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e295] [cursor=pointer]:
+                    - /url: item?id=46393493
+            - row [ref=e296]
+            - 'row "103. upvote Show HN: Web CLI – Browser-based terminal with multi-tab support (github.com/pozgo)" [ref=e297]':
+              - cell "103." [ref=e298]
+              - cell "upvote" [ref=e299]:
+                - link "upvote" [ref=e301] [cursor=pointer]:
+                  - /url: vote?id=46393490&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e302]
+              - 'cell "Show HN: Web CLI – Browser-based terminal with multi-tab support (github.com/pozgo)" [ref=e303]':
+                - generic [ref=e304]:
+                  - 'link "Show HN: Web CLI – Browser-based terminal with multi-tab support" [ref=e305] [cursor=pointer]':
+                    - /url: https://github.com/pozgo/web-cli
+                  - generic [ref=e306]:
+                    - text: (
+                    - link "github.com/pozgo" [ref=e307] [cursor=pointer]:
+                      - /url: from?site=github.com/pozgo
+                    - text: )
+            - row "3 points by polinux 2 hours ago | hide | past | discuss" [ref=e308]:
+              - cell [ref=e309]
+              - cell "3 points by polinux 2 hours ago | hide | past | discuss" [ref=e310]:
+                - generic [ref=e311]:
+                  - text: 3 points by
+                  - link "polinux" [ref=e312] [cursor=pointer]:
+                    - /url: user?id=polinux
+                  - generic "2025-12-26T16:23:46 1766766226" [ref=e313]:
+                    - link "2 hours ago" [ref=e314] [cursor=pointer]:
+                      - /url: item?id=46393490
+                  - text: "|"
+                  - link "hide" [ref=e315] [cursor=pointer]:
+                    - /url: hide?id=46393490&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e316] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Show%20HN%3A%20Web%20CLI%20%E2%80%93%20Browser-based%20terminal%20with%20multi-tab%20support&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e317] [cursor=pointer]:
+                    - /url: item?id=46393490
+            - row [ref=e318]
+            - row "104. upvote Achieving 1.2 TB/s Aggregate Bandwidth by Optimizing Distributed Cache Network (juicefs.com)" [ref=e319]:
+              - cell "104." [ref=e320]
+              - cell "upvote" [ref=e321]:
+                - link "upvote" [ref=e323] [cursor=pointer]:
+                  - /url: vote?id=46393467&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e324]
+              - cell "Achieving 1.2 TB/s Aggregate Bandwidth by Optimizing Distributed Cache Network (juicefs.com)" [ref=e325]:
+                - generic [ref=e326]:
+                  - link "Achieving 1.2 TB/s Aggregate Bandwidth by Optimizing Distributed Cache Network" [ref=e327] [cursor=pointer]:
+                    - /url: https://juicefs.com/en/blog/engineering/terabyte-aggregate-bandwidth-distributed-cache-network
+                  - generic [ref=e328]:
+                    - text: (
+                    - link "juicefs.com" [ref=e329] [cursor=pointer]:
+                      - /url: from?site=juicefs.com
+                    - text: )
+            - row "1 point by LittleCat38 2 hours ago | hide | past | discuss" [ref=e330]:
+              - cell [ref=e331]
+              - cell "1 point by LittleCat38 2 hours ago | hide | past | discuss" [ref=e332]:
+                - generic [ref=e333]:
+                  - text: 1 point by
+                  - link "LittleCat38" [ref=e334] [cursor=pointer]:
+                    - /url: user?id=LittleCat38
+                  - generic "2025-12-26T16:20:51 1766766051" [ref=e335]:
+                    - link "2 hours ago" [ref=e336] [cursor=pointer]:
+                      - /url: item?id=46393467
+                  - text: "|"
+                  - link "hide" [ref=e337] [cursor=pointer]:
+                    - /url: hide?id=46393467&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e338] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Achieving%201.2%20TB%2Fs%20Aggregate%20Bandwidth%20by%20Optimizing%20Distributed%20Cache%20Network&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e339] [cursor=pointer]:
+                    - /url: item?id=46393467
+            - row [ref=e340]
+            - row "105. upvote Serious Memory Series (pwnosaur.com)" [ref=e341]:
+              - cell "105." [ref=e342]
+              - cell "upvote" [ref=e343]:
+                - link "upvote" [ref=e345] [cursor=pointer]:
+                  - /url: vote?id=46393461&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e346]
+              - cell "Serious Memory Series (pwnosaur.com)" [ref=e347]:
+                - generic [ref=e348]:
+                  - link "Serious Memory Series" [ref=e349] [cursor=pointer]:
+                    - /url: https://pwnosaur.com/
+                  - generic [ref=e350]:
+                    - text: (
+                    - link "pwnosaur.com" [ref=e351] [cursor=pointer]:
+                      - /url: from?site=pwnosaur.com
+                    - text: )
+            - row "1 point by 0xkato 2 hours ago | hide | past | discuss" [ref=e352]:
+              - cell [ref=e353]
+              - cell "1 point by 0xkato 2 hours ago | hide | past | discuss" [ref=e354]:
+                - generic [ref=e355]:
+                  - text: 1 point by
+                  - link "0xkato" [ref=e356] [cursor=pointer]:
+                    - /url: user?id=0xkato
+                  - generic "2025-12-26T16:20:16 1766766016" [ref=e357]:
+                    - link "2 hours ago" [ref=e358] [cursor=pointer]:
+                      - /url: item?id=46393461
+                  - text: "|"
+                  - link "hide" [ref=e359] [cursor=pointer]:
+                    - /url: hide?id=46393461&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e360] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Serious%20Memory%20Series&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e361] [cursor=pointer]:
+                    - /url: item?id=46393461
+            - row [ref=e362]
+            - row "106. upvote Neuromorphic Software Guide (open-neuromorphic.org)" [ref=e363]:
+              - cell "106." [ref=e364]
+              - cell "upvote" [ref=e365]:
+                - link "upvote" [ref=e367] [cursor=pointer]:
+                  - /url: vote?id=46393458&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e368]
+              - cell "Neuromorphic Software Guide (open-neuromorphic.org)" [ref=e369]:
+                - generic [ref=e370]:
+                  - link "Neuromorphic Software Guide" [ref=e371] [cursor=pointer]:
+                    - /url: https://open-neuromorphic.org/neuromorphic-computing/software/
+                  - generic [ref=e372]:
+                    - text: (
+                    - link "open-neuromorphic.org" [ref=e373] [cursor=pointer]:
+                      - /url: from?site=open-neuromorphic.org
+                    - text: )
+            - row "2 points by ArmageddonIt 2 hours ago | hide | past | discuss" [ref=e374]:
+              - cell [ref=e375]
+              - cell "2 points by ArmageddonIt 2 hours ago | hide | past | discuss" [ref=e376]:
+                - generic [ref=e377]:
+                  - text: 2 points by
+                  - link "ArmageddonIt" [ref=e378] [cursor=pointer]:
+                    - /url: user?id=ArmageddonIt
+                  - generic "2025-12-26T16:19:55 1766765995" [ref=e379]:
+                    - link "2 hours ago" [ref=e380] [cursor=pointer]:
+                      - /url: item?id=46393458
+                  - text: "|"
+                  - link "hide" [ref=e381] [cursor=pointer]:
+                    - /url: hide?id=46393458&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e382] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Neuromorphic%20Software%20Guide&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e383] [cursor=pointer]:
+                    - /url: item?id=46393458
+            - row [ref=e384]
+            - row "107. upvote The Renewable-Energy Superpower (economist.com)" [ref=e385]:
+              - cell "107." [ref=e386]
+              - cell "upvote" [ref=e387]:
+                - link "upvote" [ref=e389] [cursor=pointer]:
+                  - /url: vote?id=46393436&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e390]
+              - cell "The Renewable-Energy Superpower (economist.com)" [ref=e391]:
+                - generic [ref=e392]:
+                  - link "The Renewable-Energy Superpower" [ref=e393] [cursor=pointer]:
+                    - /url: https://www.economist.com/special-report/2025/11/03/the-worlds-renewable-energy-superpower
+                  - generic [ref=e394]:
+                    - text: (
+                    - link "economist.com" [ref=e395] [cursor=pointer]:
+                      - /url: from?site=economist.com
+                    - text: )
+            - row "3 points by karakoram 2 hours ago | hide | past | 1 comment" [ref=e396]:
+              - cell [ref=e397]
+              - cell "3 points by karakoram 2 hours ago | hide | past | 1 comment" [ref=e398]:
+                - generic [ref=e399]:
+                  - text: 3 points by
+                  - link "karakoram" [ref=e400] [cursor=pointer]:
+                    - /url: user?id=karakoram
+                  - generic "2025-12-26T16:16:22 1766765782" [ref=e401]:
+                    - link "2 hours ago" [ref=e402] [cursor=pointer]:
+                      - /url: item?id=46393436
+                  - text: "|"
+                  - link "hide" [ref=e403] [cursor=pointer]:
+                    - /url: hide?id=46393436&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e404] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=The%20Renewable-Energy%20Superpower&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "1 comment" [ref=e405] [cursor=pointer]:
+                    - /url: item?id=46393436
+            - row [ref=e406]
+            - row "108. upvote Why does software still take years to ship when months should be enough?" [ref=e407]:
+              - cell "108." [ref=e408]
+              - cell "upvote" [ref=e409]:
+                - link "upvote" [ref=e411] [cursor=pointer]:
+                  - /url: vote?id=46393415&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e412]
+              - cell "Why does software still take years to ship when months should be enough?" [ref=e413]:
+                - link "Why does software still take years to ship when months should be enough?" [ref=e415] [cursor=pointer]:
+                  - /url: item?id=46393415
+            - row "1 point by saichler 2 hours ago | hide | past | 2 comments" [ref=e416]:
+              - cell [ref=e417]
+              - cell "1 point by saichler 2 hours ago | hide | past | 2 comments" [ref=e418]:
+                - generic [ref=e419]:
+                  - text: 1 point by
+                  - link "saichler" [ref=e420] [cursor=pointer]:
+                    - /url: user?id=saichler
+                  - generic "2025-12-26T16:14:09 1766765649" [ref=e421]:
+                    - link "2 hours ago" [ref=e422] [cursor=pointer]:
+                      - /url: item?id=46393415
+                  - text: "|"
+                  - link "hide" [ref=e423] [cursor=pointer]:
+                    - /url: hide?id=46393415&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e424] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Why%20does%20software%20still%20take%20years%20to%20ship%20when%20months%20should%20be%20enough%3F&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "2 comments" [ref=e425] [cursor=pointer]:
+                    - /url: item?id=46393415
+            - row [ref=e426]
+            - 'row "109. upvote The /Do Router: Keyword Matching for Specialist Selection in Claude Code (vexjoy.com)" [ref=e427]':
+              - cell "109." [ref=e428]
+              - cell "upvote" [ref=e429]:
+                - link "upvote" [ref=e431] [cursor=pointer]:
+                  - /url: vote?id=46393398&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e432]
+              - 'cell "The /Do Router: Keyword Matching for Specialist Selection in Claude Code (vexjoy.com)" [ref=e433]':
+                - generic [ref=e434]:
+                  - 'link "The /Do Router: Keyword Matching for Specialist Selection in Claude Code" [ref=e435] [cursor=pointer]':
+                    - /url: https://vexjoy.com/posts/the-do-router/
+                  - generic [ref=e436]:
+                    - text: (
+                    - link "vexjoy.com" [ref=e437] [cursor=pointer]:
+                      - /url: from?site=vexjoy.com
+                    - text: )
+            - row "2 points by AndyNemmity 2 hours ago | hide | past | 1 comment" [ref=e438]:
+              - cell [ref=e439]
+              - cell "2 points by AndyNemmity 2 hours ago | hide | past | 1 comment" [ref=e440]:
+                - generic [ref=e441]:
+                  - text: 2 points by
+                  - link "AndyNemmity" [ref=e442] [cursor=pointer]:
+                    - /url: user?id=AndyNemmity
+                  - generic "2025-12-26T16:12:07 1766765527" [ref=e443]:
+                    - link "2 hours ago" [ref=e444] [cursor=pointer]:
+                      - /url: item?id=46393398
+                  - text: "|"
+                  - link "hide" [ref=e445] [cursor=pointer]:
+                    - /url: hide?id=46393398&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e446] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=The%20%2FDo%20Router%3A%20Keyword%20Matching%20for%20Specialist%20Selection%20in%20Claude%20Code&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "1 comment" [ref=e447] [cursor=pointer]:
+                    - /url: item?id=46393398
+            - row [ref=e448]
+            - row "110. upvote As A.I. Companies Borrow Billions, Debt Investors Grow Wary (nytimes.com)" [ref=e449]:
+              - cell "110." [ref=e450]
+              - cell "upvote" [ref=e451]:
+                - link "upvote" [ref=e453] [cursor=pointer]:
+                  - /url: vote?id=46393377&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e454]
+              - cell "As A.I. Companies Borrow Billions, Debt Investors Grow Wary (nytimes.com)" [ref=e455]:
+                - generic [ref=e456]:
+                  - link "As A.I. Companies Borrow Billions, Debt Investors Grow Wary" [ref=e457] [cursor=pointer]:
+                    - /url: https://www.nytimes.com/2025/12/26/business/ai-debt-investors.html
+                  - generic [ref=e458]:
+                    - text: (
+                    - link "nytimes.com" [ref=e459] [cursor=pointer]:
+                      - /url: from?site=nytimes.com
+                    - text: )
+            - row "5 points by pseudolus 2 hours ago | hide | past | 2 comments" [ref=e460]:
+              - cell [ref=e461]
+              - cell "5 points by pseudolus 2 hours ago | hide | past | 2 comments" [ref=e462]:
+                - generic [ref=e463]:
+                  - text: 5 points by
+                  - link "pseudolus" [ref=e464] [cursor=pointer]:
+                    - /url: user?id=pseudolus
+                  - generic "2025-12-26T16:09:56 1766765396" [ref=e465]:
+                    - link "2 hours ago" [ref=e466] [cursor=pointer]:
+                      - /url: item?id=46393377
+                  - text: "|"
+                  - link "hide" [ref=e467] [cursor=pointer]:
+                    - /url: hide?id=46393377&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e468] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=As%20A.I.%20Companies%20Borrow%20Billions%2C%20Debt%20Investors%20Grow%20Wary&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "2 comments" [ref=e469] [cursor=pointer]:
+                    - /url: item?id=46393377
+            - row [ref=e470]
+            - 'row "111. upvote Show HN: Aegis Memory – Open-source memory layer for multi-agent AI systems (github.com/quantifylabs)" [ref=e471]':
+              - cell "111." [ref=e472]
+              - cell "upvote" [ref=e473]:
+                - link "upvote" [ref=e475] [cursor=pointer]:
+                  - /url: vote?id=46393373&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e476]
+              - 'cell "Show HN: Aegis Memory – Open-source memory layer for multi-agent AI systems (github.com/quantifylabs)" [ref=e477]':
+                - generic [ref=e478]:
+                  - 'link "Show HN: Aegis Memory – Open-source memory layer for multi-agent AI systems" [ref=e479] [cursor=pointer]':
+                    - /url: https://github.com/quantifylabs/aegis-memory
+                  - generic [ref=e480]:
+                    - text: (
+                    - link "github.com/quantifylabs" [ref=e481] [cursor=pointer]:
+                      - /url: from?site=github.com/quantifylabs
+                    - text: )
+            - row "1 point by Arulnidhi_k 2 hours ago | hide | past | discuss" [ref=e482]:
+              - cell [ref=e483]
+              - cell "1 point by Arulnidhi_k 2 hours ago | hide | past | discuss" [ref=e484]:
+                - generic [ref=e485]:
+                  - text: 1 point by
+                  - link "Arulnidhi_k" [ref=e486] [cursor=pointer]:
+                    - /url: user?id=Arulnidhi_k
+                  - generic "2025-12-26T16:09:33 1766765373" [ref=e487]:
+                    - link "2 hours ago" [ref=e488] [cursor=pointer]:
+                      - /url: item?id=46393373
+                  - text: "|"
+                  - link "hide" [ref=e489] [cursor=pointer]:
+                    - /url: hide?id=46393373&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e490] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Show%20HN%3A%20Aegis%20Memory%20%E2%80%93%20Open-source%20memory%20layer%20for%20multi-agent%20AI%20systems&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e491] [cursor=pointer]:
+                    - /url: item?id=46393373
+            - row [ref=e492]
+            - row "112. upvote iPhone Air 2 Could Still Launch Next Year (macrumors.com)" [ref=e493]:
+              - cell "112." [ref=e494]
+              - cell "upvote" [ref=e495]:
+                - link "upvote" [ref=e497] [cursor=pointer]:
+                  - /url: vote?id=46393363&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e498]
+              - cell "iPhone Air 2 Could Still Launch Next Year (macrumors.com)" [ref=e499]:
+                - generic [ref=e500]:
+                  - link "iPhone Air 2 Could Still Launch Next Year" [ref=e501] [cursor=pointer]:
+                    - /url: https://www.macrumors.com/2025/12/24/iphone-air-2-could-still-launch-next-year/
+                  - generic [ref=e502]:
+                    - text: (
+                    - link "macrumors.com" [ref=e503] [cursor=pointer]:
+                      - /url: from?site=macrumors.com
+                    - text: )
+            - row "2 points by appsDev 2 hours ago | hide | past | 2 comments" [ref=e504]:
+              - cell [ref=e505]
+              - cell "2 points by appsDev 2 hours ago | hide | past | 2 comments" [ref=e506]:
+                - generic [ref=e507]:
+                  - text: 2 points by
+                  - link "appsDev" [ref=e508] [cursor=pointer]:
+                    - /url: user?id=appsDev
+                  - generic "2025-12-26T16:07:57 1766765277" [ref=e509]:
+                    - link "2 hours ago" [ref=e510] [cursor=pointer]:
+                      - /url: item?id=46393363
+                  - text: "|"
+                  - link "hide" [ref=e511] [cursor=pointer]:
+                    - /url: hide?id=46393363&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e512] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=iPhone%20Air%202%20Could%20Still%20Launch%20Next%20Year&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "2 comments" [ref=e513] [cursor=pointer]:
+                    - /url: item?id=46393363
+            - row [ref=e514]
+            - row "113. upvote I flew inside my phone – The Hidden City [video] (youtube.com)" [ref=e515]:
+              - cell "113." [ref=e516]
+              - cell "upvote" [ref=e517]:
+                - link "upvote" [ref=e519] [cursor=pointer]:
+                  - /url: vote?id=46393359&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e520]
+              - cell "I flew inside my phone – The Hidden City [video] (youtube.com)" [ref=e521]:
+                - generic [ref=e522]:
+                  - link "I flew inside my phone – The Hidden City [video]" [ref=e523] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=QtW1lQITckE
+                  - generic [ref=e524]:
+                    - text: (
+                    - link "youtube.com" [ref=e525] [cursor=pointer]:
+                      - /url: from?site=youtube.com
+                    - text: )
+            - row "2 points by Group_B 2 hours ago | hide | past | discuss" [ref=e526]:
+              - cell [ref=e527]
+              - cell "2 points by Group_B 2 hours ago | hide | past | discuss" [ref=e528]:
+                - generic [ref=e529]:
+                  - text: 2 points by
+                  - link "Group_B" [ref=e530] [cursor=pointer]:
+                    - /url: user?id=Group_B
+                  - generic "2025-12-26T16:07:11 1766765231" [ref=e531]:
+                    - link "2 hours ago" [ref=e532] [cursor=pointer]:
+                      - /url: item?id=46393359
+                  - text: "|"
+                  - link "hide" [ref=e533] [cursor=pointer]:
+                    - /url: hide?id=46393359&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e534] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=I%20flew%20inside%20my%20phone%20%E2%80%93%20The%20Hidden%20City&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e535] [cursor=pointer]:
+                    - /url: item?id=46393359
+            - row [ref=e536]
+            - row "114. upvote Books I Read in 2025 (arslan.io)" [ref=e537]:
+              - cell "114." [ref=e538]
+              - cell "upvote" [ref=e539]:
+                - link "upvote" [ref=e541] [cursor=pointer]:
+                  - /url: vote?id=46393297&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e542]
+              - cell "Books I Read in 2025 (arslan.io)" [ref=e543]:
+                - generic [ref=e544]:
+                  - link "Books I Read in 2025" [ref=e545] [cursor=pointer]:
+                    - /url: https://arslan.io/2025/12/26/books-i-read-in-2025/
+                  - generic [ref=e546]:
+                    - text: (
+                    - link "arslan.io" [ref=e547] [cursor=pointer]:
+                      - /url: from?site=arslan.io
+                    - text: )
+            - row "2 points by farslan 2 hours ago | hide | past | discuss" [ref=e548]:
+              - cell [ref=e549]
+              - cell "2 points by farslan 2 hours ago | hide | past | discuss" [ref=e550]:
+                - generic [ref=e551]:
+                  - text: 2 points by
+                  - link "farslan" [ref=e552] [cursor=pointer]:
+                    - /url: user?id=farslan
+                  - generic "2025-12-26T15:59:15 1766764755" [ref=e553]:
+                    - link "2 hours ago" [ref=e554] [cursor=pointer]:
+                      - /url: item?id=46393297
+                  - text: "|"
+                  - link "hide" [ref=e555] [cursor=pointer]:
+                    - /url: hide?id=46393297&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e556] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Books%20I%20Read%20in%202025&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e557] [cursor=pointer]:
+                    - /url: item?id=46393297
+            - row [ref=e558]
+            - 'row "115. upvote Publisher Pathfinder: a tool to help developers find publishing partners (gamesindustry.biz)" [ref=e559]':
+              - cell "115." [ref=e560]
+              - cell "upvote" [ref=e561]:
+                - link "upvote" [ref=e563] [cursor=pointer]:
+                  - /url: vote?id=46393275&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e564]
+              - 'cell "Publisher Pathfinder: a tool to help developers find publishing partners (gamesindustry.biz)" [ref=e565]':
+                - generic [ref=e566]:
+                  - 'link "Publisher Pathfinder: a tool to help developers find publishing partners" [ref=e567] [cursor=pointer]':
+                    - /url: https://www.gamesindustry.biz/publisher-pathfinder-is-a-new-tool-to-help-developers-find-publishing-partners-and-investors
+                  - generic [ref=e568]:
+                    - text: (
+                    - link "gamesindustry.biz" [ref=e569] [cursor=pointer]:
+                      - /url: from?site=gamesindustry.biz
+                    - text: )
+            - row "2 points by ohjeez 2 hours ago | hide | past | discuss" [ref=e570]:
+              - cell [ref=e571]
+              - cell "2 points by ohjeez 2 hours ago | hide | past | discuss" [ref=e572]:
+                - generic [ref=e573]:
+                  - text: 2 points by
+                  - link "ohjeez" [ref=e574] [cursor=pointer]:
+                    - /url: user?id=ohjeez
+                  - generic "2025-12-26T15:57:02 1766764622" [ref=e575]:
+                    - link "2 hours ago" [ref=e576] [cursor=pointer]:
+                      - /url: item?id=46393275
+                  - text: "|"
+                  - link "hide" [ref=e577] [cursor=pointer]:
+                    - /url: hide?id=46393275&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e578] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Publisher%20Pathfinder%3A%20a%20tool%20to%20help%20developers%20find%20publishing%20partners&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e579] [cursor=pointer]:
+                    - /url: item?id=46393275
+            - row [ref=e580]
+            - 'row "116. upvote Show HN: AutoLISP interpreter in Rust/WASM – a CAD workflow invented 33 yrs ago (acadlisp.de)" [ref=e581]':
+              - cell "116." [ref=e582]
+              - cell "upvote" [ref=e583]:
+                - link "upvote" [ref=e585] [cursor=pointer]:
+                  - /url: vote?id=46393271&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e586]
+              - 'cell "Show HN: AutoLISP interpreter in Rust/WASM – a CAD workflow invented 33 yrs ago (acadlisp.de)" [ref=e587]':
+                - generic [ref=e588]:
+                  - 'link "Show HN: AutoLISP interpreter in Rust/WASM – a CAD workflow invented 33 yrs ago" [ref=e589] [cursor=pointer]':
+                    - /url: https://acadlisp.de/noscript.html
+                  - generic [ref=e590]:
+                    - text: (
+                    - link "acadlisp.de" [ref=e591] [cursor=pointer]:
+                      - /url: from?site=acadlisp.de
+                    - text: )
+            - row "39 points by holg 2 hours ago | hide | past | 19 comments" [ref=e592]:
+              - cell [ref=e593]
+              - cell "39 points by holg 2 hours ago | hide | past | 19 comments" [ref=e594]:
+                - generic [ref=e595]:
+                  - text: 39 points by
+                  - link "holg" [ref=e596] [cursor=pointer]:
+                    - /url: user?id=holg
+                  - generic "2025-12-26T15:56:52 1766764612" [ref=e597]:
+                    - link "2 hours ago" [ref=e598] [cursor=pointer]:
+                      - /url: item?id=46393271
+                  - text: "|"
+                  - link "hide" [ref=e599] [cursor=pointer]:
+                    - /url: hide?id=46393271&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e600] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Show%20HN%3A%20AutoLISP%20interpreter%20in%20Rust%2FWASM%20%E2%80%93%20a%20CAD%20workflow%20invented%2033%20yrs%20ago&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "19 comments" [ref=e601] [cursor=pointer]:
+                    - /url: item?id=46393271
+            - row [ref=e602]
+            - 'row "117. upvote Show HN: Private blogging and journaling with a simulated audience (tempblog-psi.vercel.app)" [ref=e603]':
+              - cell "117." [ref=e604]
+              - cell "upvote" [ref=e605]:
+                - link "upvote" [ref=e607] [cursor=pointer]:
+                  - /url: vote?id=46393262&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e608]
+              - 'cell "Show HN: Private blogging and journaling with a simulated audience (tempblog-psi.vercel.app)" [ref=e609]':
+                - generic [ref=e610]:
+                  - 'link "Show HN: Private blogging and journaling with a simulated audience" [ref=e611] [cursor=pointer]':
+                    - /url: https://tempblog-psi.vercel.app/
+                  - generic [ref=e612]:
+                    - text: (
+                    - link "tempblog-psi.vercel.app" [ref=e613] [cursor=pointer]:
+                      - /url: from?site=tempblog-psi.vercel.app
+                    - text: )
+            - row "38 points by beerd 2 hours ago | hide | past | 39 comments" [ref=e614]:
+              - cell [ref=e615]
+              - cell "38 points by beerd 2 hours ago | hide | past | 39 comments" [ref=e616]:
+                - generic [ref=e617]:
+                  - text: 38 points by
+                  - link "beerd" [ref=e618] [cursor=pointer]:
+                    - /url: user?id=beerd
+                  - generic "2025-12-26T15:55:21 1766764521" [ref=e619]:
+                    - link "2 hours ago" [ref=e620] [cursor=pointer]:
+                      - /url: item?id=46393262
+                  - text: "|"
+                  - link "hide" [ref=e621] [cursor=pointer]:
+                    - /url: hide?id=46393262&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e622] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Show%20HN%3A%20Private%20blogging%20and%20journaling%20with%20a%20simulated%20audience&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "39 comments" [ref=e623] [cursor=pointer]:
+                    - /url: item?id=46393262
+            - row [ref=e624]
+            - 'row "118. upvote Show HN: A schema-first, multi-agent pipeline for autonomous research (github.com/giatenica)" [ref=e625]':
+              - cell "118." [ref=e626]
+              - cell "upvote" [ref=e627]:
+                - link "upvote" [ref=e629] [cursor=pointer]:
+                  - /url: vote?id=46393233&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e630]
+              - 'cell "Show HN: A schema-first, multi-agent pipeline for autonomous research (github.com/giatenica)" [ref=e631]':
+                - generic [ref=e632]:
+                  - 'link "Show HN: A schema-first, multi-agent pipeline for autonomous research" [ref=e633] [cursor=pointer]':
+                    - /url: https://github.com/giatenica/gia-agentic-short
+                  - generic [ref=e634]:
+                    - text: (
+                    - link "github.com/giatenica" [ref=e635] [cursor=pointer]:
+                      - /url: from?site=github.com/giatenica
+                    - text: )
+            - row "2 points by 7777777phil 2 hours ago | hide | past | discuss" [ref=e636]:
+              - cell [ref=e637]
+              - cell "2 points by 7777777phil 2 hours ago | hide | past | discuss" [ref=e638]:
+                - generic [ref=e639]:
+                  - text: 2 points by
+                  - link "7777777phil" [ref=e640] [cursor=pointer]:
+                    - /url: user?id=7777777phil
+                  - generic "2025-12-26T15:51:52 1766764312" [ref=e641]:
+                    - link "2 hours ago" [ref=e642] [cursor=pointer]:
+                      - /url: item?id=46393233
+                  - text: "|"
+                  - link "hide" [ref=e643] [cursor=pointer]:
+                    - /url: hide?id=46393233&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e644] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Show%20HN%3A%20A%20schema-first%2C%20multi-agent%20pipeline%20for%20autonomous%20research&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e645] [cursor=pointer]:
+                    - /url: item?id=46393233
+            - row [ref=e646]
+            - row "119. upvote The Quest of the Simple Life (collabfund.substack.com)" [ref=e647]:
+              - cell "119." [ref=e648]
+              - cell "upvote" [ref=e649]:
+                - link "upvote" [ref=e651] [cursor=pointer]:
+                  - /url: vote?id=46393231&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e652]
+              - cell "The Quest of the Simple Life (collabfund.substack.com)" [ref=e653]:
+                - generic [ref=e654]:
+                  - link "The Quest of the Simple Life" [ref=e655] [cursor=pointer]:
+                    - /url: https://collabfund.substack.com/p/the-quest-of-the-simple-life
+                  - generic [ref=e656]:
+                    - text: (
+                    - link "collabfund.substack.com" [ref=e657] [cursor=pointer]:
+                      - /url: from?site=collabfund.substack.com
+                    - text: )
+            - row "1 point by RickJWagner 2 hours ago | hide | past | discuss" [ref=e658]:
+              - cell [ref=e659]
+              - cell "1 point by RickJWagner 2 hours ago | hide | past | discuss" [ref=e660]:
+                - generic [ref=e661]:
+                  - text: 1 point by
+                  - link "RickJWagner" [ref=e662] [cursor=pointer]:
+                    - /url: user?id=RickJWagner
+                  - generic "2025-12-26T15:51:39 1766764299" [ref=e663]:
+                    - link "2 hours ago" [ref=e664] [cursor=pointer]:
+                      - /url: item?id=46393231
+                  - text: "|"
+                  - link "hide" [ref=e665] [cursor=pointer]:
+                    - /url: hide?id=46393231&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e666] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=The%20Quest%20of%20the%20Simple%20Life&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "discuss" [ref=e667] [cursor=pointer]:
+                    - /url: item?id=46393231
+            - row [ref=e668]
+            - row "120. upvote Building Trust Online (trustengine.quest)" [ref=e669]:
+              - cell "120." [ref=e670]
+              - cell "upvote" [ref=e671]:
+                - link "upvote" [ref=e673] [cursor=pointer]:
+                  - /url: vote?id=46393226&how=up&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - generic "upvote" [ref=e674]
+              - cell "Building Trust Online (trustengine.quest)" [ref=e675]:
+                - generic [ref=e676]:
+                  - link "Building Trust Online" [ref=e677] [cursor=pointer]:
+                    - /url: https://www.trustengine.quest/
+                  - generic [ref=e678]:
+                    - text: (
+                    - link "trustengine.quest" [ref=e679] [cursor=pointer]:
+                      - /url: from?site=trustengine.quest
+                    - text: )
+            - row "1 point by AgustinRhetoric 2 hours ago | hide | past | 1 comment" [ref=e680]:
+              - cell [ref=e681]
+              - cell "1 point by AgustinRhetoric 2 hours ago | hide | past | 1 comment" [ref=e682]:
+                - generic [ref=e683]:
+                  - text: 1 point by
+                  - link "AgustinRhetoric" [ref=e684] [cursor=pointer]:
+                    - /url: user?id=AgustinRhetoric
+                  - generic "2025-12-26T15:50:59 1766764259" [ref=e685]:
+                    - link "2 hours ago" [ref=e686] [cursor=pointer]:
+                      - /url: item?id=46393226
+                  - text: "|"
+                  - link "hide" [ref=e687] [cursor=pointer]:
+                    - /url: hide?id=46393226&goto=newest%3Fnext%3D46393625%26n%3D91
+                  - text: "|"
+                  - link "past" [ref=e688] [cursor=pointer]:
+                    - /url: https://hn.algolia.com/?query=Building%20Trust%20Online&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0
+                  - text: "|"
+                  - link "1 comment" [ref=e689] [cursor=pointer]:
+                    - /url: item?id=46393226
+            - row [ref=e690]
+            - row [ref=e691]
+            - row "More" [ref=e692]:
+              - cell [ref=e693]
+              - cell "More" [ref=e694]:
+                - link "More" [ref=e695] [cursor=pointer]:
+                  - /url: newest?next=46393224&n=121
+    - row "Guidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact Search:" [ref=e696]:
+      - cell "Guidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact Search:" [ref=e697]:
+        - img
+        - table [ref=e698]:
+          - rowgroup [ref=e699]:
+            - row [ref=e700]:
+              - cell [ref=e701]
+        - generic [ref=e702]:
+          - generic [ref=e703]:
+            - link "Guidelines" [ref=e704] [cursor=pointer]:
+              - /url: newsguidelines.html
+            - text: "|"
+            - link "FAQ" [ref=e705] [cursor=pointer]:
+              - /url: newsfaq.html
+            - text: "|"
+            - link "Lists" [ref=e706] [cursor=pointer]:
+              - /url: lists
+            - text: "|"
+            - link "API" [ref=e707] [cursor=pointer]:
+              - /url: https://github.com/HackerNews/API
+            - text: "|"
+            - link "Security" [ref=e708] [cursor=pointer]:
+              - /url: security.html
+            - text: "|"
+            - link "Legal" [ref=e709] [cursor=pointer]:
+              - /url: https://www.ycombinator.com/legal/
+            - text: "|"
+            - link "Apply to YC" [ref=e710] [cursor=pointer]:
+              - /url: https://www.ycombinator.com/apply/
+            - text: "|"
+            - link "Contact" [ref=e711] [cursor=pointer]:
+              - /url: mailto:hn@ycombinator.com
+          - generic [ref=e712]:
+            - text: "Search:"
+            - textbox [ref=e713]
+```

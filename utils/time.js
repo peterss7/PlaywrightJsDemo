@@ -43,6 +43,7 @@ function parseHnTimestamp(timestamp, index) {
  */
 function checkNewestToOldest(rows) {
     const result = createResult({ message: "Ok; Check chronology successful..." });
+    // console.log(`Rows: ${rows}, typeof: ${typeof rows}`);
     if (!Array.isArray(rows)) {
         return failResult({ result, message: "rows is not an array" });
     }
