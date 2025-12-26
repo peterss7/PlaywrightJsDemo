@@ -4,6 +4,7 @@ require("dotenv").config();
 const { chromium } = require("playwright");
 const { TitlesPage } = require("./pages/TitlesPage");
 const { expect } = require("@playwright/test");
+const {checkNewestToOldest} = require("./utils/time");
 
 const baseUrl = process.env.BASE_URL ?? "https://example.com";
 const headless = (process.env.HEADLESS ?? "true").toLowerCase() === "true";
@@ -28,12 +29,7 @@ async function sortHackerNewsArticles() {
     const rowData = await titlesPage.getTargetRows();
 
     // Perform test
-    expect(TitlesPage.getIsChronological(rowData).ok).toBe(true);
-
-    // Output row data
-    rowData.forEach((row, index) => {
-        console.log(`${index + 1}. ${row.timestamp} - ${row.title}`);
-    });
+    expect(checkNewestToOldest(rowData.data.map(r => r.timestamp)).ok).toBe(true);
 
     // close browser
     await browser.close();

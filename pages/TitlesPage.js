@@ -1,19 +1,12 @@
 // ./pages/TitlesPage.js
 
+const path = require("node:path");
+const fs = require("node:fs");
 const { BasePage } = require("./BasePage");
-
-class RowData {
-    /**
-     * Data of a row
-     * @param {string} title 
-     * @param {string} timestamp 
-     */
-    constructor(title, timestamp) {
-        this.title = title;
-        this.timestamp = timestamp;
-    }
-}
-
+const { createResult, failResult } = require("../utils/result");
+const { getHnTimestamps, getHnTitles } = require("../utils/hn");   
+// const { parseHnTitle} = require("../utils/browser/hnDom");
+// const { HN } = require("../utils/hnSelectors");
 
 /**
  * Class for extracting info from titles page
@@ -24,6 +17,9 @@ class TitlesPage extends BasePage {
     titleLocator = process.env.TITLE_LOCATOR ?? "tr.athing span.titleline > a";
     timestampLocator = process.env.TIMESTAMP_LOCATOR ?? "xpath=//tr[contains(@class, 'athing')]/following-sibling::tr[1]//span[@class='age']";
 
+
+    hnDomUtil = path.join(__dirname, "../utils/browser/hnDom.js");
+
     /**
      * @param {import('@playwright/test').Page} page 
      */
@@ -31,117 +27,56 @@ class TitlesPage extends BasePage {
         super(page);
     }
 
+    // async setup(){
+    //     await this.page.addInitScript(hnDomUtil);
+    // }
+
+    // async ensureHnDomInjected(page) {
+    //     // idempotent: only inject once per page
+    //     if (await page.evaluate(() => !!window.__hnDomInjected)) return;
+
+    //     await page.addInitScript(this.hnDomSource);
+    //     await page.addInitScript(() => {
+    //         window.__hnDomInjected = true;
+    //     });
+    // }
+
+    /**
+     * Gets result of rowData
+     * @returns {BaseResult}
+     */
     async getTargetRows() {
-        const rowData = [];
+        // await this.ensureHnDomInjected(this.page);
+        const result = createResult({ message: "Fetched target rows..." });
+        const rowElements = await this.getElements("tr.athing");
+        // const timestamps = await this.page
+        //     .locator("span.age")
+        //     .evaluateAll((els) => els.map(el => el.getAttribute("title") ?? ""));
+        const timestamps = await getHnTimestamps(this.page);
+        const titles = await getHnTitles(this.page);
+        console.log(`timestamps: ${titles}`);
+        // const titles = await rowElements.locator("span.titleline").allTextContents();
+        // const timestamps = await rowElements.locator("span.age").allTextContents();
+        // const titles = await this.page.locator("tr.athing span.titleline").allTextContents();
+        // const timestamps = 
 
-        while (true) {
-            const newRowData = await this.getRowData(rowData.length);
-            if (newRowData.length === 0) {
-                break;
-            }
-            rowData.push(...newRowData);
-            await this.clickByRole("link", { name: "More", exact: true });
-        }
-        return rowData;
+        // console.log(`ts: ${timestamps}`);
+
+        // const rows = await rowElements.evaluateAll((els) =>
+        //     els.map((el) => {
+        //         const id = el.getAttribute("id") ?? "";
+        //         // const title = el.querySelector("span.titleline > a")?.textContent?.trim() ?? "";
+        //         const title = window.hnGetTitle(el);
+        //         const sub = el.nextElementSibling;
+        //         const timestamp = sub?.querySelector("span.age")?.getAttribute("title")?.trim() ?? "";
+
+        //         return { id, title, timestamp };
+        //     }));
+
+        return { ...result, data: rows };
     }
 
-    /**
-     * Get array of titles with locator
-     * @param {string} locator
-     * @returns {Promise<string[]>}
-     */
-    async getTitles(locator = this.titleLocator) {
-        const elements = this.getElements(locator);
-        return await elements.evaluateAll((els) =>
-            els.map((el) => (el.textContent || "").trim())
-        );
-    }
 
-    /**
-     * Get array of timestamps of elements.
-     * @param {timestampLocator} timestampLocator
-     * @returns {Promise<string[]>}
-     */
-    async getTimestamps(
-        timestampLocator = this.timestampLocator
-    ) {
-
-        const timestamps = this.getElements(timestampLocator);
-        return await timestamps.evaluateAll((els) =>
-            els.map((el) => (el.getAttribute("title") || "").trim())
-        );
-    }
-
-    /**
-     * Returns array of row data
-     * @param {number} rowDataLength
-     * @param {string} titleLocator 
-     * @param {string} timestampLocator 
-     * @returns {Promise<RowData[]>}
-     */
-    async getRowData(
-        rowDataLength,
-        titleLocator = this.titleLocator,
-        timestampLocator = this.timestampLocator
-    ) {
-        console.log("rowdata length:", rowDataLength);
-        if (rowDataLength === 100) return [];
-        const titles = await this.getTitles(titleLocator);
-        const timestamps = await this.getTimestamps(timestampLocator);
-        const rowData = []
-
-        if (titles.length !== timestamps.length) {
-            throw new Error(`Rowdata Mismatch: titles=${titles.length}, timestamps=${timestamps.length}`);
-        }
-
-        for (let i = 0; i < titles.length; i++) {
-            rowData.push(new RowData(titles[i], timestamps[i]));
-            if (rowData.length + rowDataLength === 100) {
-                break;
-            }
-        }
-
-        return rowData;
-    }
-
-    /**
-     * Returns true if data is in chronological order
-     * @param {RowData[]} rowData 
-     * @returns {object}
-     */
-    static getIsChronological(rowData) {
-        let previousTime = null;
-
-        rowData.forEach((row, i) => {
-            const d = row.timestamp.split(" ")[0]?.trim();
-            let currentTime = Number.isNaN(d) ? null : d;
-
-            // console.log("previous: ", previousTime);
-
-            if (currentTime === null) {
-                throw new Error("Parsed invalid Time from row: ", row.title);
-            }
-
-            if (previousTime === null) {
-                previousTime = currentTime;
-            }
-            else {
-                if (currentTime > previousTime) {
-                    return {
-                        ok: false,
-                        errorIndex: i,
-                        reason:
-                            `Out of chronological order.` +
-                            `Title: ${row.title}.` +
-                            `Timestamp ${currentTime} is more recent than previous ${previousTime}.`
-                    };
-                }
-                previousTime = currentTime;
-            }
-        });
-
-        return { ok: true }
-    }
 }
 
 module.exports = { TitlesPage };

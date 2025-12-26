@@ -17,7 +17,7 @@ class BasePage {
      */
     async goto(path) {
         await this.page.goto(path, { waitUntil: "domcontentloaded" });
-        console.log("Navigated to:", await this.page.title());
+        // console.log("Navigated to:", await this.page.title());
     }
 
     /**
@@ -33,8 +33,8 @@ class BasePage {
      * @param {string} locator
      * @returns {import('@playwright/test').Locator}
      */
-    getElements(locator){
-        return this.page.locator(locator);
+    async getElements(locator){
+        return await this.page.locator(locator);
     }
 }
 

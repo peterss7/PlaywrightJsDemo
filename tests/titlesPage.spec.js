@@ -1,12 +1,17 @@
 // tests/titlesPage.spec.js
+const { TitlesPage } = require("../pages/TitlesPage");
+const { checkNewestToOldest } = require("../utils/time");
 const { test, expect } = require("@playwright/test");
-// const { PartA } = require("../src/pages/PartA");
 
-// test("Part A does the thing", async ({ page }) => {
-//     const partA = new PartA(page);
+test("TitlesPage top 100 entries are in chronological order.", async ({ page }) => {
+    const titlesPage = new TitlesPage(page);
 
-//     await partA.open();
-//     await partA.doThing();
+    await titlesPage.goto("/newest");
+    // await titlesPage.setup();
 
-//     await expect(page.locator("#result")).toHaveText(/success/i);
-// });
+    const rowDataResult = await titlesPage.getTargetRows();
+    console.log(`rowData result: ${rowDataResult.data.map(r => r.timestamp)}`);
+    const checkResult = checkNewestToOldest(rowDataResult.data.map(r => r.timestamp ));
+
+    expect(checkResult.ok, checkResult.message).toBeTruthy();
+});
