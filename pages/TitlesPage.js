@@ -49,8 +49,8 @@ class TitlesPage extends BasePage {
     /**
      * Change the attribute of a timestamp
      */
-    async manipulateTimestamps() {
-        await this.setAttributeValue(TIMESTAMP_LOCATOR, TITLE_ATTRIBUTE);
+    async manipulateTimestamps(newValue = "") {
+        await this.setAttributeValue(TIMESTAMP_LOCATOR, TITLE_ATTRIBUTE, newValue);
     }
 }
 

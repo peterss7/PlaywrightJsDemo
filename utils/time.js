@@ -1,5 +1,7 @@
 // ./utils/time.js
 
+const { ChronologyError, TimestampParseError } = require("../errors/ValidationError");
+
 /**
  * Checks that array of unix seconds timestamps is in newest->oldest order
  * @param {string[]} timeStamps
@@ -10,10 +12,18 @@ function checkNewestToOldest(unixSecondsArray) {
         const current = unixSecondsArray[i];
 
         if (!Number.isFinite(previous) || !Number.isFinite(current)) {
-            throw new Error(`Invalid unixSeconds value at index ${i - 1} or ${i}: ${previous}, ${current}`);
+            throw new TimestampParseError(`Invalid unixSeconds at index ${i - 1} or ${i}`, {
+                i,
+                previous,
+                current
+            });
         }
         if (current > previous) {
-            throw new Error(`Not newest->oldest at index ${i}: ${current} > ${previous}`);
+            throw new ChronologyError("Titles not chronological, newest to oldest", { 
+                i, 
+                previous, 
+                current,
+            });
         }
     }
     return { ok: true, message: "Success!" };
