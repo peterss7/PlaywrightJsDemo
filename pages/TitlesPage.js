@@ -24,20 +24,46 @@ class TitlesPage extends BasePage {
      * @returns {{title: string, unixSeconds: number}[]}
      */
     async getTargetRows() {
-        const timestamps = await this.getAllAttributeContents(TIMESTAMP_LOCATOR, TITLE_ATTRIBUTE);
-        const titles = await this.getAllTextContents(TITLES_LOCATOR);
+        try {
+            const timestamps = await this.getAllAttributeContents(TIMESTAMP_LOCATOR, TITLE_ATTRIBUTE);
+            const titles = await this.getAllTextContents(TITLES_LOCATOR);
 
-        if (timestamps.length !== titles.length) {
-            throw new Error(`Title/Timestamp length mismatch: ${timestamps.length}/${titles.length}`);
+            if (timestamps.length !== titles.length) {
+                throw new Error(`Title/Timestamp length mismatch: ${timestamps.length}/${titles.length}`);
+            }
+
+            return timestamps.map((timestamp, i) => {
+                const parsed = parseTimestamp(timestamp);
+                return {
+                    ok: true,
+                    title: titles[i],
+                    unixSeconds: parsed.unixSeconds,
+                    message: "Success!"
+                };
+            });
+        } catch (err) {
+            return { ok: false, message: `failed to get target rows. Error: ${err.message}` };
         }
+        
+    }
 
-        return timestamps.map((timestamp, i) => {
-            const parsed = parseTimestamp(timestamp);
-            return {
-                title: titles[i],
-                unixSeconds: parsed.unixSeconds
-            };
+    /**
+     * Change the attribute of a timestamp
+     */
+    async manipulateTimestamps() {
+        const age = this.page.locator("span.age").first();
+
+        const before = await age.getAttribute("title");
+        console.log("before:", before);
+
+        await age.evaluate(el => {
+            // break the format parseTimestamp expects: "<iso> <unix>"
+            el.setAttribute("title", "not-a-timestamp");
         });
+
+        const after = await age.getAttribute("title");
+        console.log("after:", after);
+
     }
 }
 

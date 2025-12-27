@@ -4,12 +4,6 @@
  * Class for the most basic page functions
  */
 class BasePage {
-    // Handles data extraction from table
-    static valueModeHandlers = {
-        TEXT_CONTENT: (element) => element.textContent?.trim() ?? "",
-        ATTRIBUTE: (element, attribute) => element.getAttribute(attribute) ?? "",
-    };
-
     /**
     * @param {import('@playwright/test').Page} page 
      */
@@ -23,7 +17,6 @@ class BasePage {
      */
     async goto(path) {
         await this.page.goto(path, { waitUntil: "domcontentloaded" });
-        // console.log("Navigated to:", await this.page.title());
     }
 
     /**
@@ -74,6 +67,21 @@ class BasePage {
             .evaluateAll((els, attribute) =>
                 els.map(el => el.getAttribute(attribute) ?? ""),
                 attribute);
+    }
+
+    async setText(locator, attribute, newValue) {
+        const targetElement = this.page.locator(locator).first();
+
+        const before = await targetElement.getAttribute(attribute);
+        console.log("before:", before);
+
+        await targetElement.evaluate(el => {
+            // break the format parseTimestamp expects: "<iso> <unix>"
+            el.setAttribute(attribute, newValue);
+        });
+
+        const after = await targetElement.getAttribute(attribute);
+        console.log("after:", after);
     }
 }
 

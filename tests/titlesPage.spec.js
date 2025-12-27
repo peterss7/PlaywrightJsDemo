@@ -13,3 +13,12 @@ test("Pass_Titles_Are_NewestToOldest", async ({ page }) => {
     const rows = await titlesPage.getTargetRows();
     assertNewestToOldest(rows.map(r => r.unixSeconds));
 });
+
+test("Fail_Has_Invalid_Timestamp", async({page}) => {
+    const titlesPage = new TitlesPage(page);
+    await titlesPage.goto("/newest");
+
+    await titlesPage.manipulateTimestamps();
+    const rowsResult = await titlesPage.getTargetRows();
+    expect(!rowsResult.ok, rowsResult.message).toBeTruthy();
+});
