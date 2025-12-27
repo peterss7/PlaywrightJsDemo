@@ -69,19 +69,18 @@ class BasePage {
                 attribute);
     }
 
-    async setText(locator, attribute, newValue) {
-        const targetElement = this.page.locator(locator).first();
-
-        const before = await targetElement.getAttribute(attribute);
-        console.log("before:", before);
-
-        await targetElement.evaluate(el => {
-            // break the format parseTimestamp expects: "<iso> <unix>"
-            el.setAttribute(attribute, newValue);
-        });
-
-        const after = await targetElement.getAttribute(attribute);
-        console.log("after:", after);
+    /**
+     * Changes the value of selected attribute
+     * @param {*} locator // yields elements that could change
+     * @param {*} attribute // attribute being changed
+     * @param {*} newValue // new value
+     * @param {number} index // index of element being changed
+     */
+    async setAttributeValue(locator, attribute, newValue = "", index = 0) {
+        await this.page.locator(locator).nth(index).evaluate(
+            (el, { attribute, newValue}) => el.setAttribute(attribute, newValue),
+            { attribute, newValue }
+        );
     }
 }
 

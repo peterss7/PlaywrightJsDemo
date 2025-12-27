@@ -21,7 +21,7 @@ class TitlesPage extends BasePage {
 
     /**
      * Retrieve target rows with title and unixSeconds
-     * @returns {{title: string, unixSeconds: number}[]}
+     * @returns {{ok: boolean, title: string, unixSeconds: number, message: string}[]}
      */
     async getTargetRows() {
         try {
@@ -44,26 +44,13 @@ class TitlesPage extends BasePage {
         } catch (err) {
             return { ok: false, message: `failed to get target rows. Error: ${err.message}` };
         }
-        
     }
 
     /**
      * Change the attribute of a timestamp
      */
     async manipulateTimestamps() {
-        const age = this.page.locator("span.age").first();
-
-        const before = await age.getAttribute("title");
-        console.log("before:", before);
-
-        await age.evaluate(el => {
-            // break the format parseTimestamp expects: "<iso> <unix>"
-            el.setAttribute("title", "not-a-timestamp");
-        });
-
-        const after = await age.getAttribute("title");
-        console.log("after:", after);
-
+        await this.setAttributeValue(TIMESTAMP_LOCATOR, TITLE_ATTRIBUTE);
     }
 }
 
