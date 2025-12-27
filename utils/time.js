@@ -1,54 +1,41 @@
+// ./utils/time.js
 
 /**
- * Returns true if data is in chronological order
+ * Checks that array of unix seconds timestamps is in newest->oldest order
  * @param {string[]} timeStamps
- * @returns {Object}
  */
-function checkNewestToOldest(unixSecondsArray) {
-    let previousTime = -1;
-    const result = { ok: true, message: "Success" };
+function assertNewestToOldest(unixSecondsArray) {
+    for (let i = 1; i < unixSecondsArray.length; i++) {
+        const previous = unixSecondsArray[i - 1];
+        const current = unixSecondsArray[i];
 
-
-    for (let i = 0; i < unixSecondsArray.length; i++) {
-        if (result.ok) {
-            const current = unixSecondsArray[i];
-            if (current === null) {
-                result = { ok: false, message: `Parsed invalid Time from timestamp: ${current}` };
-            }
-
-            if (previousTime === -1) {
-                previousTime = current;
-            }
-            else {
-                if (current > previousTime) {
-                    result = { ok: false, message: "Order is not chronological." };
-                }
-                else{
-                    previousTime = current;
-                }
-            }
+        if (!Number.isFinite(previous) || !Number.isFinite(current)) {
+            throw new Error(`Invalid unixSeconds value at index ${i - 1} or ${i}: ${previous}, ${current}`);
+        }
+        if (current > previous) {
+            throw new Error(`Not newest->oldest at index ${i}: ${current} > ${previous}`);
         }
     }
-
-    return { ok: true, message: "Success!" };
 }
 
+/**
+ * Parses timestamp string into object
+ * @param {string} timestamp // e.g. "2025-12-23T19:25:27 1766517927"
+ * @returns {Object} // { iso: string, unixSeconds: number, date: Date }
+ */
 function parseTimestamp(timestamp) {
-
     const [iso, unix] = timestamp.trim().split(/\s+/);
     const unixSeconds = Number(unix);
-
     if (!(iso && !Number.isNaN(unixSeconds))) {
-        return { ok: false, message: "Invalid timestamp format: ", timestamp };
+        throw new Error(`Invalid timestamp format: ${timestamp}`);
     }
 
     const date = new Date(iso);
-
     if (Number.isNaN(date.getTime())) {
-        return { ok: false, message: "Could not parse date from timestamp: ", timestamp };
+        throw new Error(`Could not parse date from timestamp: ${timestamp}`);
     }
 
-    return { ok: true, data: { iso: iso, unixSeconds: unixSeconds, date: date } };
+    return { iso, unixSeconds, date };
 }
 
-module.exports = { checkNewestToOldest, parseTimestamp };
+module.exports = { assertNewestToOldest, parseTimestamp };

@@ -1,7 +1,5 @@
 // ./pages/BasePage.js
 
-const TableSelector = require("../enums/TableSelector");
-
 /**
  * Class for the most basic page functions
  */
@@ -36,9 +34,7 @@ class BasePage {
      */
     async clickButton(buttonLocator, attribute, rowLocator = null) {
         if (rowLocator !== null) {
-            
-            const t = await this.page.locator(rowLocator);
-            // console.log(`t: ${t}`);
+
             const firstId = await this.page.locator(rowLocator).first().getAttribute(attribute);
 
             await Promise.all([
@@ -56,11 +52,28 @@ class BasePage {
     }
 
     /**
-     * @param {string} locator
-     * @returns {import('@playwright/test').Locator}
+     * Retrieve all text contents for locator
+     * @param {string} locator 
+     * @returns {Promise<string[]>}
      */
-    async getElements(locator){
-        return await this.page.locator(locator);
+    async getAllTextContents(locator) {
+        return await this.page
+            .locator(locator)
+            .allTextContents();
+    }
+
+    /**
+     * Returns all attribute contents for locator
+     * @param {string} locator 
+     * @param {string} attribute 
+     * @returns {Promise<string[]>}
+     */
+    async getAllAttributeContents(locator, attribute) {
+        return await this.page
+            .locator(locator)
+            .evaluateAll((els, attribute) =>
+                els.map(el => el.getAttribute(attribute) ?? ""),
+                attribute);
     }
 }
 
