@@ -19,6 +19,9 @@ module.exports = defineConfig({
             headless: process.env.HEADLESS === "true",
             slowMo: Number(process.env.SLOW_MO) ?? 0,
         },
+        trace: "retain-on-failure",
+        screenshot: "only-on-failure",
+        video: "retain-on-failure",
     },
     projects: [
         {
@@ -26,4 +29,5 @@ module.exports = defineConfig({
             use: { ...devices['Desktop Chrome'] },
         },
     ],
+    reporter: [["html"], ["list"]],
 });
