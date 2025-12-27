@@ -1,22 +1,19 @@
 // ./pages/TitlesPage.js
 
+const path = require("node:path");
 const { BasePage } = require("./BasePage");
-const { formatHnTitle } = require("../utils/hn");
-const { parseHnTimestamp } = require("../utils/time");
-const { TableSelector } = require("../enums/TableSelector");
-const { createResult, failResult } = require("../utils/result");
-const { create } = require("node:domain");
+const { parseTimestamp } = require("../utils/time");
+// const { parseHnTitle} = require("../utils/browser/hnDom");
+// const { HN } = require("../utils/hnSelectors");
 
-/** @typedef {import("../types/result").BaseResult } BaseResult */
+const TITLES_LOCATOR = "tr.athing span.titleline > a"
+const TIMESTAMP_LOCATOR = "span.age";
+const TITLE_ATTRIBUTE = "title";
 
 /**
  * Class for extracting info from titles page
  */
 class TitlesPage extends BasePage {
-
-    // Default locator for elements containing title text
-    titleLocator = process.env.TITLE_LOCATOR ?? "tr.athing span.titleline > a";
-    timestampLocator = process.env.TIMESTAMP_LOCATOR ?? "xpath=//tr[contains(@class, 'athing')]/following-sibling::tr[1]//span[@class='age']";
 
     /**
      * @param {import('@playwright/test').Page} page 
@@ -33,85 +30,50 @@ class TitlesPage extends BasePage {
     }
 
     /**
-     * Returns first n rows of table data
-     * @param {number} n = 100
-     * @returns {Promise<HnRowData[]>}
+     * 
+     * @returns Object
      */
-    async getTargetRows(n = 100) {
-        const rowData = [];
+    async getTargetRows() {
+        const rows = [];
 
-        // Loop until we have n rows
-        while (true) {
-            // A fail safe
-            if (rowData.length >= n) {
-                break;
-            }
-            // Get titles and timestamps from current page
-            const newTitles = await this.getTitles();
-            const newTimestamps = await this.getTimestamps();
-            // console.log(`timestamps: ${newTimestamps}`);
+        const timestamps = await this.getTimestamps();
+        const titles = await this.getTitles();
 
-            // Ensure we have matching counts
-            if (newTitles.length !== newTimestamps.length) {
-                throw new Error(`Title/timestamp count mismatch: ${newTitles.length} titles vs ${newTimestamps.length} timestamps`);
-            }
+        // console.log("timestamps", JSON.stringify(timestamps));
+        // console.log("Titles", JSON.stringify(titles));
 
-            // If adding all new rows would exceed n, trim the extras
-            if (newTitles.length + rowData.length > n) {
-                newTitles.splice(n - rowData.length);
-                newTimestamps.splice(n - rowData.length);
-            }
 
-            // Add new rows to rowData
-            for (let i = 0; i < newTitles.length; i++) {
-                rowData.push({ title: newTitles[i], timestamp: newTimestamps[i] });
-            }
-
-            // Check if we have enough rows
-            if (rowData.length >= n) {
-                break;
-            }
-
-            // Navigate to next page for more rows
-            await this.clickButton("a.morelink", "id", "tr.athing");
+        if (timestamps.length !== titles.length) {
+            return { ok: false, message: `Title/Timestamp length mismatch: ${timestamps.length}/${titles.length}` };
         }
 
-        return rowData;
-    }
+        for (let i = 0; i < timestamps.length; i++) {
 
-    /**
-     * Returns titles from current page
-     * @returns {Promise<string[]>}
-     */
-    async getTitles() {
-        // Get title elements
-        const newTitleElements = this.getElements(this.titleLocator);
+            const parseTimestampResult = parseTimestamp(timestamps[i]);
+            if (!parseTimestampResult.ok) {
+                return parseTimestampResult;
+            }
 
-        // Ensure we have some elements
-        if (!newTitleElements || newTitleElements.count === 0) {
-            throw new Error("No title elements, but more were expected: ", this.titleLocator);
+            rows.push({ title: titles[i], unixSeconds: parseTimestampResult.data.unixSeconds });
         }
 
-        // Extract titles
-        const newTitles = await this.getAllRowValues(TableSelector.TEXT_CONTENT, (await newTitleElements));
-
-        // Format titles and return
-        return newTitles.map(t => formatHnTitle(t));
+        return { ok: true, message: "Successfully found target row data.", data: rows };
     }
 
-    /**
-     * Returns timestamps from current page
-     * @returns {Promise<number[]>}
-     */
     async getTimestamps() {
-        const newTimestampElements = await this.getElements(this.timestampLocator);
-        console.log(`new timestamps count: ${newTimestampElements.count}`);
-        if (!newTimestampElements || newTimestampElements.count === 0) {
-            throw new Error("No timestamp elements, but more were expected: ", this.timestampLocator);
-        }
-        const newTimestamps = await this.getAllRowValues(TableSelector.ATTRIBUTE, newTimestampElements);
-        return newTimestamps.map(ts => parseHnTimestamp(ts).unixSeconds);
+        return await this.page
+            .locator(TIMESTAMP_LOCATOR)
+            .evaluateAll((els, attribute) =>
+                els.map(el => el.getAttribute(attribute) ?? ""),
+                TITLE_ATTRIBUTE);
     }
+
+    async getTitles() {
+        return await this.page
+            .locator(TITLES_LOCATOR)
+            .allTextContents();
+    }
+
 }
 
 module.exports = { TitlesPage };

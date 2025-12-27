@@ -1,69 +1,54 @@
-// ./utils/time.js
-
-const { createResult, failResult } = require("../utils/result");
-
-/** @typedef {import("../types/hn").HnRow} HnRow */
-/** @typedef {import("../types/hn").HnTimestamp} HnTimestamp */
-/** @typedef {import("../types/result").BaseResult} BaseResult */
 
 /**
- * returns parsed time for chronology check
- * @param {string} timestamp // e.g. "2025-12-23T19:25:27 1766517927"
- * @param {number} index
- * @returns {BaseResult}
+ * Returns true if data is in chronological order
+ * @param {string[]} timeStamps
+ * @returns {Object}
  */
-function parseHnTimestamp(timestamp, index) {
-    if (typeof index !== "number") index = -1;
-    const result = createResult({ messsage: "Parsed HnTimestamp..." });
+function checkNewestToOldest(unixSecondsArray) {
+    let previousTime = -1;
+    const result = { ok: true, message: "Success" };
 
-    if (!timestamp || typeof timestamp !== "string") {
-        return failResult(result, { message: `Timestamp ${timestamp} is not a string...` });
+
+    for (let i = 0; i < unixSecondsArray.length; i++) {
+        if (result.ok) {
+            const current = unixSecondsArray[i];
+            if (current === null) {
+                result = { ok: false, message: `Parsed invalid Time from timestamp: ${current}` };
+            }
+
+            if (previousTime === -1) {
+                previousTime = current;
+            }
+            else {
+                if (current > previousTime) {
+                    result = { ok: false, message: "Order is not chronological." };
+                }
+                else{
+                    previousTime = current;
+                }
+            }
+        }
     }
+
+    return { ok: true, message: "Success!" };
+}
+
+function parseTimestamp(timestamp) {
 
     const [iso, unix] = timestamp.trim().split(/\s+/);
     const unixSeconds = Number(unix);
-    if (!iso || Number.isNaN(unixSeconds)) {
-        return failResult(result, { message: `iso is null or unixSeconds ${unixSeconds} is NaN...` });
+
+    if (!(iso && !Number.isNaN(unixSeconds))) {
+        return { ok: false, message: "Invalid timestamp format: ", timestamp };
     }
 
     const date = new Date(iso);
+
     if (Number.isNaN(date.getTime())) {
-        return failResult(result, { message: `Could not parse ISO date from timestamp "${timestamp}"` });
+        return { ok: false, message: "Could not parse date from timestamp: ", timestamp };
     }
 
-    result.data = { iso, unixSeconds, date };
-
-    return result;
+    return { ok: true, data: { iso: iso, unixSeconds: unixSeconds, date: date } };
 }
 
-/**
- * Returns true if array is ordered newest to oldest 
- * @param {HnRow[]} rows 
- * @returns {BaseResult}
- */
-function checkNewestToOldest(rows) {
-    const result = createResult({ message: "Ok; Check chronology successful..." });
-    // console.log(`Rows: ${rows}, typeof: ${typeof rows}`);
-    if (!Array.isArray(rows)) {
-        return failResult({ result, message: "rows is not an array" });
-    }
-
-    for (let i = 1; i < rows.length; i++) {
-        const previous = rows[i - 1];
-        const current = rows[i];
-        if (current.unixSeconds > previous.unixSeconds) {
-            return failResult({
-                result,
-                breakIndex: i,
-                message:
-                    `Order breaks at i=${i}:\n` +
-                    `   previous: [id=${previous.id}] ${previous.unixSeconds} "${rowData[i].title}"\n` +
-                    `   current : [id=${current.id}] ${current.unixSeconds} "${current.title}"\n` +
-                    `   current is newer than previous, should be newest -> oldest!`,
-            });
-        }
-    }
-    return result;
-}
-
-module.exports = { parseHnTimestamp, checkNewestToOldest };
+module.exports = { checkNewestToOldest, parseTimestamp };
