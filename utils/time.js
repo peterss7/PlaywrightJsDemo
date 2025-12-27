@@ -4,7 +4,7 @@
  * Checks that array of unix seconds timestamps is in newest->oldest order
  * @param {string[]} timeStamps
  */
-function assertNewestToOldest(unixSecondsArray) {
+function checkNewestToOldest(unixSecondsArray) {
     for (let i = 1; i < unixSecondsArray.length; i++) {
         const previous = unixSecondsArray[i - 1];
         const current = unixSecondsArray[i];
@@ -16,6 +16,7 @@ function assertNewestToOldest(unixSecondsArray) {
             throw new Error(`Not newest->oldest at index ${i}: ${current} > ${previous}`);
         }
     }
+    return { ok: true, message: "Success!" };
 }
 
 /**
@@ -38,4 +39,4 @@ function parseTimestamp(timestamp) {
     return { iso, unixSeconds, date };
 }
 
-module.exports = { assertNewestToOldest, parseTimestamp };
+module.exports = { checkNewestToOldest, parseTimestamp };
