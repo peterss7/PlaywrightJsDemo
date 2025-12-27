@@ -3,15 +3,13 @@ const { TitlesPage } = require("../pages/TitlesPage");
 const { checkNewestToOldest } = require("../utils/time");
 const { test, expect } = require("@playwright/test");
 
-test("TitlesPage top 100 entries are in chronological order.", async ({ page }) => {
+test("Pass_Titles_Are_NewestToOldest", async ({ page }) => {
     const titlesPage = new TitlesPage(page);
 
     await titlesPage.goto("/newest");
-    // await titlesPage.setup();
 
     const rowDataResult = await titlesPage.getTargetRows();
-    console.log(`rowData result: ${rowDataResult.data.map(r => r.timestamp)}`);
-    const checkResult = checkNewestToOldest(rowDataResult.data.map(r => r.timestamp ));
+    const checkResult = checkNewestToOldest(rowDataResult.data.map(r => r.unixSeconds));
 
     expect(checkResult.ok, checkResult.message).toBeTruthy();
 });

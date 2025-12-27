@@ -1,38 +1,54 @@
-const { createResult, failResult } = require("./result");
 
 /**
  * Returns true if data is in chronological order
  * @param {string[]} timeStamps
- * @returns {BaseResult}
+ * @returns {Object}
  */
-function checkNewestToOldest(timeStamps) {
-    const result = createResult();
-    let previousTime = null;
+function checkNewestToOldest(unixSecondsArray) {
+    let previousTime = -1;
+    const result = { ok: true, message: "Success" };
 
-    timeStamps.forEach((timestamp, i) => {
-        console.log(`Checking timestamp at index ${i}: "${timestamp}"`);
-        const d = timestamp.split(" ")[0]?.trim();
-        let currentTime = Number.isNaN(d) ? null : d;
 
-        if (currentTime === null) {
-            throw new Error("Parsed invalid Time from timestamp: ", timestamp);
-        }
-
-        if (previousTime === null) {
-            previousTime = currentTime;
-        }
-        else {
-            if (currentTime > previousTime) {
-                return failResult(result, {
-                    errorIndex: i, 
-                    message: `Timestamps are not in chronological order at index ${i}: "${timestamp}"` 
-                });
+    for (let i = 0; i < unixSecondsArray.length; i++) {
+        if (result.ok) {
+            const current = unixSecondsArray[i];
+            if (current === null) {
+                result = { ok: false, message: `Parsed invalid Time from timestamp: ${current}` };
             }
-            previousTime = currentTime;
-        }
-    });
 
-    return result;
+            if (previousTime === -1) {
+                previousTime = current;
+            }
+            else {
+                if (current > previousTime) {
+                    result = { ok: false, message: "Order is not chronological." };
+                }
+                else{
+                    previousTime = current;
+                }
+            }
+        }
+    }
+
+    return { ok: true, message: "Success!" };
 }
 
-module.exports = { checkNewestToOldest };
+function parseTimestamp(timestamp) {
+
+    const [iso, unix] = timestamp.trim().split(/\s+/);
+    const unixSeconds = Number(unix);
+
+    if (!(iso && !Number.isNaN(unixSeconds))) {
+        return { ok: false, message: "Invalid timestamp format: ", timestamp };
+    }
+
+    const date = new Date(iso);
+
+    if (Number.isNaN(date.getTime())) {
+        return { ok: false, message: "Could not parse date from timestamp: ", timestamp };
+    }
+
+    return { ok: true, data: { iso: iso, unixSeconds: unixSeconds, date: date } };
+}
+
+module.exports = { checkNewestToOldest, parseTimestamp };
